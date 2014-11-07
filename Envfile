@@ -1,0 +1,11 @@
+enable_defaults! { ENV['RACK_ENV'] != 'production' }
+
+variable :PORT, :integer, default: 8080
+variable :WEB_CONCURRENCY, :integer, default: 3
+
+# variable :REDIS_URL, :string, default: 'redis://localhost:6379'
+
+group :production do
+  variable :SECRET_KEY_BASE, :string
+  variable :DATABASE_URL, :string
+end
