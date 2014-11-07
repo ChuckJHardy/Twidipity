@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: twidipity_production
-  username: twidipity
-  password: <%= ENV['TWIDIPITY_DATABASE_PASSWORD'] %>
+  # username: twidipity
+  # password: <%= ENV['TWIDIPITY_DATABASE_PASSWORD'] %>
