@@ -1,3 +1,27 @@
-// Place all the styles related to the LandingPad controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container-fluid {
+  text-transform: uppercase;
+
+  .director {
+    h3 {
+      color: $director;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  .statement {
+    h1 {
+      color: $statement-name;
+    }
+
+    h2 {
+      color: $statement-static;
+
+      span {
+        color: $statement-touch;
+      }
+    }
+  }
+}
