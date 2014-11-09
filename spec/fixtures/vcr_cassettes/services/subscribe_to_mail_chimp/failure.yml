@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://us9.api.mailchimp.com/2.0/lists/subscribe
+    body:
+      encoding: UTF-8
+      string: '{"apikey":"<MAIL_CHIMP_KEY>","id":"<MAIL_CHIMP_LIST_ID>","email":{"email":"invalid_email_address"},"double_optin":true}'
+    headers: {}
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '106'
+      X-Mailchimp-Api-Error-Code:
+      - "-100"
+      Date:
+      - Sun, 09 Nov 2014 18:39:56 GMT
+      Connection:
+      - close
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+      X-N:
+      - S
+    body:
+      encoding: UTF-8
+      string: '{"status":"error","code":-100,"name":"ValidationError","error":"An
+        email address must contain a single @"}'
+    http_version: 
+  recorded_at: Sun, 09 Nov 2014 18:39:57 GMT
+recorded_with: VCR 2.9.3

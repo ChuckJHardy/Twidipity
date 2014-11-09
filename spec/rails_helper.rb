@@ -1,8 +1,9 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require 'spec_helper'
+# This file is copied to spec/ when you run "rails generate rspec:install"
+require "spec_helper"
 require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
+require "rspec/rails"
+require "vcr"
+require "webmock/rspec"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -47,4 +48,19 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+
+  # Filter Rails secrets that are strings or numbers
+  secrets_to_filter = Rails.application.secrets.select do |key, value|
+    value.is_a?(String) || value.is_a?(Numeric)
+  end
+
+  secrets_to_filter.each do |key, value|
+    c.filter_sensitive_data("<#{key.upcase}>") { value }
+  end
 end
