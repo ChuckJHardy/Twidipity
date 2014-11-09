@@ -21,7 +21,7 @@ http_interactions:
       X-Mailchimp-Api-Error-Code:
       - "-100"
       Date:
-      - Sun, 09 Nov 2014 18:39:56 GMT
+      - Sun, 09 Nov 2014 22:20:33 GMT
       Connection:
       - close
       Set-Cookie:
@@ -33,5 +33,5 @@ http_interactions:
       string: '{"status":"error","code":-100,"name":"ValidationError","error":"An
         email address must contain a single @"}'
     http_version: 
-  recorded_at: Sun, 09 Nov 2014 18:39:57 GMT
+  recorded_at: Sun, 09 Nov 2014 22:20:33 GMT
 recorded_with: VCR 2.9.3

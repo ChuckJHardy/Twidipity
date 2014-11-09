@@ -15,3 +15,21 @@ end
 Then(/^I should see "(.*?)" on the page$/) do |text|
   expect(page).to have_content text
 end
+
+Given(/^I complete and submit a valid subscription form$/) do
+  VCR.use_cassette("services/subscribe_to_mail_chimp/success") do
+    fill_in("email", with: "twidipity+test@insert.coffee")
+    click_button("Send")
+  end
+end
+
+Given(/^I complete and submit an invalid subscription form$/) do
+  VCR.use_cassette("services/subscribe_to_mail_chimp/failure") do
+    fill_in("email", with: "invalid_email_address")
+    click_button("Send")
+  end
+end
+
+Then(/^I should be on the homepage$/) do
+  expect(current_path).to eq(root_path)
+end

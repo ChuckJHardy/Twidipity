@@ -1,7 +1,13 @@
 <div class="row director">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h3>Coming Soon</h3>
+    <% if flash.any? %>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :h3, msg %>
+      <% end %>
+    <% else %>
+      <h3>Coming Soon</h3>
+    <% end %>
   </div>
   <div class="col-md-2"></div>
 </div>

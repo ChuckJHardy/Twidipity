@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :landing_pad, only: [:index] do
+  resources :landing_pad, only: [:index, :create] do
     collection do
       get 'notify'
     end
