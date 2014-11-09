@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :landing_pad, only: [:index] do
+    collection do
+      get 'notify'
+    end
+  end
+
   root 'landing_pad#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

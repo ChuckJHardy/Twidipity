@@ -4,13 +4,28 @@
   .director {
     h3 {
       color: $director;
-      font-size: 12px;
+      font-size: $director-font-size;
 
       a {
         color: inherit;
 
         &:hover {
           text-decoration: none;
+          color: $statement-touch;
+        }
+      }
+
+      input[type=submit] {
+        font-size: $director-font-size;
+        text-transform: uppercase;
+        padding: 0;
+        border: none;
+        background: none;
+        font-family: $default-font;
+        font-weight: $font-weight;
+        letter-spacing: $letter-spacing;
+
+        &:hover {
           color: $statement-touch;
         }
       }
@@ -31,6 +46,22 @@
       span {
         color: $statement-touch;
       }
+    }
+
+    input[type=text] {
+      height: 40px;
+      width: 400px;
+      padding-left: 15px;
+      border: none;
+      border-left: 3px solid $statement-name;
+      border-right: 3px solid $statement-name;
+      outline: none;
+      text-align: center;
+      color: $statement-touch;
+      background: $background;
+      font-family: $default-font;
+      font-weight: $font-weight;
+      letter-spacing: $letter-spacing;
     }
   }
 }

@@ -1,7 +1,7 @@
 body {
   background-color: $background;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
+  font-family: $default-font;
+  font-weight: $font-weight;
   text-align: center;
-  letter-spacing: 8px;
+  letter-spacing: $letter-spacing;
 }

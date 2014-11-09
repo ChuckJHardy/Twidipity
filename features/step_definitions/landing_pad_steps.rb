@@ -1,5 +1,11 @@
+# https://gist.github.com/zhengjia/428105
+
 Given(/^I go to the homepage$/) do
   visit "/"
+end
+
+Given(/^I click on "(.*?)"$/) do |name|
+  click_link name
 end
 
 Then(/^I should see "(.*?)" page title$/) do |title|
