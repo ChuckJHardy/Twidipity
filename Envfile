@@ -10,4 +10,5 @@ variable :MAILCHIMP_LIST_ID, :string
 group :production do
   variable :SECRET_KEY_BASE, :string
   variable :DATABASE_URL, :string
+  variable :GOOGLE_ANALYTICS, :string
 end
