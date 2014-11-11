@@ -16,6 +16,15 @@ Then(/^I should see "(.*?)" on the page$/) do |text|
   expect(page).to have_content text
 end
 
+Then(/^I should be on Twitter Share page$/) do
+  raise current_url.inspect
+end
+
+Then(/^I should see a Twitter Share link$/) do
+  href = "https://twitter.com/home?status=The%20discovery%20of%20fortunate%20Twitter%20events%20by%20accident%20with%20@Twidipity"
+  expect(page).to have_selector "a[href='#{href}']", text: "Share"
+end
+
 Given(/^I complete and submit a valid subscription form$/) do
   VCR.use_cassette("services/subscribe_to_mail_chimp/success") do
     fill_in("email", with: "twidipity+test@insert.coffee")
