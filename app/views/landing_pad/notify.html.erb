@@ -1,0 +1,27 @@
+<%= form_tag controller: :landing_pad, action: :create do %>
+  <div class="row director">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3>10/01/2015</h3>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row statement">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div>
+        <%= text_field_tag :email, nil, placeholder: 'EMAIL ADDRESS', required: true %>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row director">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3><%= submit_tag "Send" %></h3>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+<% end %>

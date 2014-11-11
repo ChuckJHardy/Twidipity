@@ -2,6 +2,8 @@ enable_defaults! { ENV['RACK_ENV'] != 'production' }
 
 variable :PORT, :integer, default: 8080
 variable :WEB_CONCURRENCY, :integer, default: 3
+variable :MAILCHIMP_KEY, :string
+variable :MAILCHIMP_LIST_ID, :string
 
 # variable :REDIS_URL, :string, default: 'redis://localhost:6379'
 

@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://us9.api.mailchimp.com/2.0/lists/subscribe
+    body:
+      encoding: UTF-8
+      string: '{"apikey":"<MAIL_CHIMP_KEY>","id":"<MAIL_CHIMP_LIST_ID>","email":{"email":"twidipity+test@insert.coffee"},"double_optin":true}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '79'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 09 Nov 2014 22:20:32 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+    body:
+      encoding: UTF-8
+      string: '{"email":"twidipity+test@insert.coffee","euid":"f382a5a719","leid":"201235161"}'
+    http_version: 
+  recorded_at: Sun, 09 Nov 2014 22:20:32 GMT
+recorded_with: VCR 2.9.3
