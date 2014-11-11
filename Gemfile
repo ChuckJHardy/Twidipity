@@ -16,6 +16,7 @@ gem "jquery-rails"
 gem "turbolinks"
 gem "bootstrap-sass"
 gem "autoprefixer-rails"
+gem "newrelic_rpm", "~> 3.9.6"
 
 # Docs
 gem "sdoc", group: :doc
