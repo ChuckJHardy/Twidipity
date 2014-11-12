@@ -1,6 +1,6 @@
 class LandingPadController < ApplicationController
   def index; end
-  def notify; end
+  def invite; end
 
   def create
     SubscribeToMailChimp.call email: params[:email]

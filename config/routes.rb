@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  resources :landing_pad, only: [:index, :create] do
-    collection do
-      get 'notify'
-    end
-  end
+  resources :landing_pad, only: [:index, :create]
+  get "/invite" => "landing_pad#invite", as: :invite
 
   root 'landing_pad#index'
 
@@ -11,10 +8,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get 'products/id': 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #   get 'products/id/purchase': 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

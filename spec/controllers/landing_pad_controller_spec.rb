@@ -7,4 +7,11 @@ RSpec.describe LandingPadController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "GET invite" do
+    it "returns http success" do
+      get :invite
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

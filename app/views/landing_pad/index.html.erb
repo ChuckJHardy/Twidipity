@@ -4,13 +4,12 @@
       <%= content_tag :h3, msg %>
     <% end %>
   <% else %>
-    <h3>Coming Soon</h3>
+    <h3><%= link_to 'Request Invite', invite_path %></h3>
   <% end %>
 </div>
 
 <h1 class="title">Twidipity</h1>
 <h2 class="subtitle">The <span>discovery</span> of <span>tweets</span></h2>
 <div class="links">
-  <%= link_to 'Notify', notify_landing_pad_index_path %> |
   <a href="https://twitter.com/intent/tweet?original_referer=<%= root_url %>&status=The%20discovery%20of%20fortunate%20Twitter%20events%20by%20accident%20with%20@Twidipity <%= root_url %>">Share</a>
 </div>
