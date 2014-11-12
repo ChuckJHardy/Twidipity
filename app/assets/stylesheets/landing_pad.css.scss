@@ -15,11 +15,12 @@
   text-transform: uppercase;
 
   .status {
+    margin-bottom: 33%;
+
     h3 {
       color: $director;
       font-size: $director-font-size;
       font-weight: $font-weight;
-      margin-bottom: 30px;
 
       a {
         color: inherit;
@@ -28,9 +29,12 @@
           text-decoration: none;
           color: $statement-touch;
         }
-      }
-      
+      }      
     }
+  }
+
+  .date {
+    margin-bottom: 0;
   }
 
   .title {
@@ -46,7 +50,7 @@
     color: $statement-static;
     font-size: 15px;
     font-weight: $font-weight;
-    margin-bottom: 30px;
+    margin-bottom: 0;
     margin-top: 0;
 
     span {
@@ -56,6 +60,7 @@
 
   .links{
     color: $director;
+    margin-top: 33%;
 
     a {
       color: $director;
@@ -80,6 +85,7 @@
     font-weight: $font-weight;
     letter-spacing: $letter-spacing;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   input[type=submit] {
