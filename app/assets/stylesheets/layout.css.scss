@@ -5,3 +5,8 @@ body {
   text-align: center;
   letter-spacing: $letter-spacing;
 }
+
+a {
+  text-decoration: none;
+  color: $director;
+}

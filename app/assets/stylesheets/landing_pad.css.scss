@@ -14,54 +14,57 @@ html, body {
   height: 100%;
 }
 
-.container-fluid {
+.teaser {
+  text-align: center;
   text-transform: uppercase;
-}
 
-.director {
-  h3 {
-    color: $director;
-    font-size: $director-font-size;
-
-    a {
-      color: inherit;
-
-      &:hover {
-        text-decoration: none;
-        color: $statement-touch;
-      }
-    }
-
-    input[type=submit] {
+  .status {
+    h3 {
+      color: $director;
       font-size: $director-font-size;
-      text-transform: uppercase;
-      padding: 0;
-      border: none;
-      background: none;
-      font-family: $default-font;
       font-weight: $font-weight;
-      letter-spacing: $letter-spacing;
+      margin-bottom: 30px;
 
-      &:hover {
-        color: $statement-touch;
+      a {
+        color: inherit;
+
+        &:hover {
+          text-decoration: none;
+          color: $statement-touch;
+        }
       }
+      
     }
   }
-}
 
-.statement {
-  h1 {
+  .title {
     color: $statement-name;
     letter-spacing: 25px;
     font-size: 60px;
+    font-weight: $font-weight;
+    margin-top: 0;
+    margin-bottom: 15px;
   }
 
-  h2 {
+  .subtitle {
     color: $statement-static;
     font-size: 15px;
+    font-weight: $font-weight;
+    margin-bottom: 30px;
+    margin-top: 0;
 
     span {
       color: $statement-touch;
+    }
+  }
+
+  .links{
+    color: $director;
+
+    a {
+      color: $director;
+      font-size: 12px;
+      font-weight: $font-weight;
     }
   }
 
@@ -77,7 +80,27 @@ html, body {
     color: $statement-touch;
     background: $background;
     font-family: $default-font;
+    font-size: 14px;
     font-weight: $font-weight;
     letter-spacing: $letter-spacing;
+    margin-bottom: 20px;
+  }
+
+  input[type=submit] {
+    color: $director;
+    display: block;
+    font-size: $director-font-size;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: $default-font;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spacing;
+    margin: 0 auto;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $statement-touch;
+    }
   }
 }
