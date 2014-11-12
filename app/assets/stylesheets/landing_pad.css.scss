@@ -1,10 +1,26 @@
-.container-fluid {
+.flexcontainer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+      -webkit-align-items: center;
+              align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.teaser {
+  text-align: center;
   text-transform: uppercase;
 
-  .director {
+  .status {
+    margin-bottom: 33%;
+
     h3 {
       color: $director;
       font-size: $director-font-size;
+      font-weight: $font-weight;
 
       a {
         color: inherit;
@@ -13,55 +29,81 @@
           text-decoration: none;
           color: $statement-touch;
         }
-      }
-
-      input[type=submit] {
-        font-size: $director-font-size;
-        text-transform: uppercase;
-        padding: 0;
-        border: none;
-        background: none;
-        font-family: $default-font;
-        font-weight: $font-weight;
-        letter-spacing: $letter-spacing;
-
-        &:hover {
-          color: $statement-touch;
-        }
-      }
+      }      
     }
   }
 
-  .statement {
-    h1 {
-      color: $statement-name;
-      letter-spacing: 25px;
-      font-size: 60px;
-    }
+  .date {
+    margin-bottom: 0;
+  }
 
-    h2 {
-      color: $statement-static;
-      font-size: 15px;
+  .title {
+    color: $statement-name;
+    letter-spacing: 25px;
+    font-size: 60px;
+    font-weight: $font-weight;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
 
-      span {
-        color: $statement-touch;
-      }
-    }
+  .subtitle {
+    color: $statement-static;
+    font-size: 15px;
+    font-weight: $font-weight;
+    margin-bottom: 0;
+    margin-top: 0;
 
-    input[type=text] {
-      height: 40px;
-      width: 400px;
-      padding-left: 15px;
-      border: none;
-      border-left: 3px solid $statement-name;
-      border-right: 3px solid $statement-name;
-      outline: none;
-      text-align: center;
+    span {
       color: $statement-touch;
-      background: $background;
-      font-family: $default-font;
+    }
+  }
+
+  .links{
+    color: $director;
+    margin-top: 33%;
+
+    a {
+      color: $director;
+      font-size: 12px;
       font-weight: $font-weight;
-      letter-spacing: $letter-spacing;
+    }
+  }
+
+  input[type=text] {
+    height: 40px;
+    width: 400px;
+    padding-left: 15px;
+    border: none;
+    border-left: 3px solid $statement-name;
+    border-right: 3px solid $statement-name;
+    outline: none;
+    text-align: center;
+    color: $statement-touch;
+    background: $background;
+    font-family: $default-font;
+    font-size: 14px;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spacing;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  input[type=submit] {
+    color: $director;
+    display: block;
+    font-size: $director-font-size;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: $default-font;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spacing;
+    margin: 0 auto;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $statement-touch;
     }
   }
 }
