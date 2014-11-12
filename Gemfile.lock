@@ -31,8 +31,6 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.1.2.20141016)
       execjs
-    bootstrap-sass (3.3.0.1)
-      sass (~> 3.2)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -202,7 +200,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bootstrap-sass
   coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner
