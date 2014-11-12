@@ -14,7 +14,6 @@ gem "coffee-rails", "~> 4.0.0"
 gem "therubyracer",  platforms: :ruby
 gem "jquery-rails"
 gem "turbolinks"
-gem "autoprefixer-rails"
 gem "newrelic_rpm", "~> 3.9.6"
 
 # Docs
