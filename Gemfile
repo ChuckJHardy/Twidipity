@@ -14,13 +14,16 @@ gem "coffee-rails", "~> 4.0.0"
 gem "therubyracer",  platforms: :ruby
 gem "jquery-rails"
 gem "turbolinks"
-gem "newrelic_rpm", "~> 3.9.6"
+gem "normalize-rails"
 
 # Docs
 gem "sdoc", group: :doc
 
 # API"s
 gem "gibbon", "~> 1.1"
+
+# Tools
+gem "newrelic_rpm", "~> 3.9.6"
 
 group :development do
   gem "foreman"
