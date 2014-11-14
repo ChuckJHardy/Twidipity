@@ -67,6 +67,8 @@ GEM
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
+    dotenv-rails (0.11.1)
+      dotenv (= 0.11.1)
     envied (0.8.1)
       coercible (~> 1.0)
       rack (~> 1.4)
@@ -207,6 +209,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner
+  dotenv-rails
   envied
   foreman
   gibbon (~> 1.1)
