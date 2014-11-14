@@ -1,5 +1,6 @@
+.DS_Store
+.envrc
 logfile
 tmp
-.envrc
-log/
-.DS_Store
+log
+coverage
