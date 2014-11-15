@@ -1,13 +1,18 @@
 class SessionsController < ApplicationController
   def create
     session[:user_id] = user.id
-    redirect_to root_path, notice: "Welcome #{user.name}"
+    redirect_to root_path
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   private
 
   def user
-    User.find(uid: auth[:uid]) ||
+    User.find_by(uid: auth[:uid]) ||
       User.create_with_omniauth(auth: auth)
   end
 
