@@ -1,5 +1,5 @@
 class SubscribeToMailChimp
-  def initialize email: email, optin: true
+  def initialize email:, optin: true
     @email = email
     @optin = optin
   end

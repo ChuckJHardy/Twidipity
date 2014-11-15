@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#create_with_omniauth" do
+    subject { described_class.create_with_omniauth auth: auth }
+
+    let(:auth) { {} }
+
+    it "calls off to service" do
+      expect(CreateOmniauthUser).to receive(:call).with(auth: auth) { true }
+      expect(subject).to be_truthy
+    end
+  end
 end
