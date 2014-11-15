@@ -1,6 +1,6 @@
-<%= form_tag controller: :landing_pad, action: :create do %>
+<%= form_tag controller: :invite, action: :create do %>
   <div class="status date">
-    <h3>10/01/2015</h3>
+    <h3><%= link_to "Signin", "/auth/twitter" %></h3>
   </div>
   <%= text_field_tag :email, nil, placeholder: 'EMAIL ADDRESS', required: true %>
   <%= submit_tag "Send", :class => "submit" %>

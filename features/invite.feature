@@ -1,21 +1,9 @@
-Feature: Landing Pad
-  Scenario: Visitor
-    Given I go to the homepage
-    Then I should see "Welcome To Twidipity" page title
-    And I should see "Twidipity" on the page
-    And I should see "The discovery of tweets" on the page
-    And I should see "Request Invite" on the page
-    And I should see "Share" on the page
-
+Feature: Invite
   Scenario: Invite
     Given I go to the homepage
     And I click on "Request Invite"
     Then I should see "Welcome To Twidipity" page title
-    And I should see "10/01/2015" on the page
-
-  Scenario: Share
-    Given I go to the homepage
-    Then I should see a Twitter Share link
+    And I should see "Signin" on the page
 
   Scenario: Subscribe (Success)
     Given I go to the homepage

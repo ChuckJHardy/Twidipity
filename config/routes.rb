@@ -1,17 +1,27 @@
-Rails.application.routes.draw do
-  resources :landing_pad, only: [:index, :create]
-  get "/invite" => "landing_pad#invite", as: :invite
+require "./lib/beta_user_contraint"
 
-  root 'landing_pad#index'
+Rails.application.routes.draw do
+  resources :invite, only: [:index, :new, :create]
+  resources :statements, only: [:index]
+
+  get "/auth/twitter/callback" => "sessions#create"
+  get "/logout" => "sessions#destroy"
+
+  get "/",
+    to: "statements#index",
+    constraints: BetaUserConstraint,
+    as: :statements_root
+
+  root to: "invite#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # Example of regular route:
-  #   get 'products/id': 'catalog#view'
+  #   get "products/id": "catalog#view"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/id/purchase': 'catalog#purchase', as: :purchase
+  #   get "products/id/purchase": "catalog#purchase", as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -19,12 +29,12 @@ Rails.application.routes.draw do
   # Example resource route with options:
   #   resources :products do
   #     member do
-  #       get 'short'
-  #       post 'toggle'
+  #       get "short"
+  #       post "toggle"
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get "sold"
   #     end
   #   end
 
@@ -38,13 +48,13 @@ Rails.application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', on: :collection
+  #       get "recent", on: :collection
   #     end
   #   end
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     post "toggle"
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
