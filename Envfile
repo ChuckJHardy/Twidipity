@@ -1,15 +1,28 @@
 enable_defaults! { ENV['RACK_ENV'] != 'production' }
 
+# Application
 variable :PORT, :integer, default: 8080
 variable :WEB_CONCURRENCY, :integer, default: 3
-variable :MAILCHIMP_KEY, :string
-variable :MAILCHIMP_LIST_ID, :string
+
+# Tracking
 variable :NEWRELIC_LICENSE_KEY, :string
 
+# API's
+variable :MAILCHIMP_KEY, :string
+variable :MAILCHIMP_LIST_ID, :string
+variable :TWITTER_API_KEY, :string
+variable :TWITTER_API_SECRET, :string
+
+# Database
 # variable :REDIS_URL, :string, default: 'redis://localhost:6379'
 
 group :production do
+  # Application
   variable :SECRET_KEY_BASE, :string
+
+  # Database
   variable :DATABASE_URL, :string
+
+  # Tracking
   variable :GOOGLE_ANALYTICS, :string
 end
