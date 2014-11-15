@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :landing_pad, only: [:index, :create]
-  get "/invite" => "landing_pad#invite", as: :invite
+  resources :invite, only: [:index, :new, :create]
 
   get "/auth/twitter/callback" => "sessions#create"
 
-  root 'landing_pad#index'
+  root 'invite#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
