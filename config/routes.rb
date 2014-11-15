@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :landing_pad, only: [:index, :create]
   get "/invite" => "landing_pad#invite", as: :invite
 
+  get "/auth/twitter/callback" => "sessions#create"
+
   root 'landing_pad#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,7 +11,7 @@ Feature: Landing Pad
     Given I go to the homepage
     And I click on "Request Invite"
     Then I should see "Welcome To Twidipity" page title
-    And I should see "10/01/2015" on the page
+    And I should see "Signin" on the page
 
   Scenario: Share
     Given I go to the homepage
