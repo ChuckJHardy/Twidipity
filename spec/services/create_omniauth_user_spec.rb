@@ -29,7 +29,7 @@ describe CreateOmniauthUser do
     {
       "id" => nil,
       "uid" => "123456",
-      "role" => 0,
+      "role" => "inactive",
       "token" => "a1b2c3d4",
       "secret" => "abcdef1234",
       "name" => "John Q Public",
