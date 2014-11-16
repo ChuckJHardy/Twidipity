@@ -14,7 +14,7 @@ end
 
 Then(/^I should be on the invite page$/) do
   expect(current_path).to eq(root_path)
-  step "I should see \"Request Invite\" on the page"
+  step "I should see \":)\" on the page"
 end
 
 When(/^I click on "(.*?)" as an Admin$/) do |name|

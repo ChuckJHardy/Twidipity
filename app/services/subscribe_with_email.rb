@@ -1,6 +1,7 @@
-class SubscribeToMailChimp
-  def initialize email:, optin: true
-    @email = email
+class SubscribeWithEmail
+  def initialize address:, controller:, optin: true
+    @address = address
+    @controller = controller
     @optin = optin
   end
 
@@ -10,12 +11,13 @@ class SubscribeToMailChimp
 
   def call
     gibbon.lists.subscribe options
+    @controller.redirect_to @controller.root_path, notice: ":)"
   end
 
   private
 
   def options
-    { id: id, email: { email: @email }, double_optin: @optin }
+    { id: id, email: { email: @address }, double_optin: @optin }
   end
 
   def gibbon

@@ -1,7 +1,13 @@
 <%= form_tag controller: :invite, action: :create do %>
-  <div class="status date">
+  <div class="status">
     <h3><%= link_to "Signin", "/auth/twitter" %></h3>
   </div>
-  <%= text_field_tag :email, nil, placeholder: 'EMAIL ADDRESS', required: true %>
-  <%= submit_tag "Send", :class => "submit" %>
+
+  <h1 class="title">
+    <%= text_field_tag :address, nil, required: true, autofocus: true %>
+  </h1>
+  <h2 class="subtitle"><span>Twitter </span>Handle or <span>Email </span>Address</h2>
+  <div class="links">
+    <%= submit_tag "Save", class: "submit" %>
+  </div>
 <% end %>

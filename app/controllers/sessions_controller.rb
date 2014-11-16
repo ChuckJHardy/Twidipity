@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     session[:user_id] = user.id if !user.inactive?
-    redirect_to root_path
+    redirect_to root_path, notice: ":)"
   end
 
   def destroy
