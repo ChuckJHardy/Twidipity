@@ -2,6 +2,9 @@
   <div class="status date">
     <h3><%= link_to "Signin", "/auth/twitter" %></h3>
   </div>
-  <%= text_field_tag :email, nil, placeholder: 'EMAIL ADDRESS', required: true %>
-  <%= submit_tag "Send", :class => "submit" %>
+
+  <%= hidden_field_tag :url, "https://twitter.com/intent/tweet?original_referer=#{root_url}&status=The%20discovery%20of%20fortunate%20tweets%20by%20accident%20with%20@Twidipity.%20Get%20your%20invite%20at%20#{root_url}" %>
+  <%= text_field_tag :handle, nil, placeholder: "@", required: true, autofocus: true %>
+
+  <%= submit_tag "Tweet to Save", class: "submit" %>
 <% end %>

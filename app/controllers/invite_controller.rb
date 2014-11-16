@@ -3,11 +3,7 @@ class InviteController < ApplicationController
   def new; end
 
   def create
-    SubscribeToMailChimp.call email: params[:email]
-    flash[:notice] = "Check your email"
-  rescue Gibbon::MailChimpError => exception
-    flash[:error] = exception
-  ensure
-    redirect_to root_path
+    Invite.create! handle: params[:handle]
+    redirect_to params[:url]
   end
 end
