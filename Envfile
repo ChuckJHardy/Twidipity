@@ -6,6 +6,8 @@ variable :WEB_CONCURRENCY, :integer, default: 3
 
 # Tracking
 variable :NEWRELIC_LICENSE_KEY, :string
+variable :SKYLIGHT_ID, :string
+variable :SKYLIGHT_AUTH, :string
 
 # API's
 variable :MAILCHIMP_KEY, :string
