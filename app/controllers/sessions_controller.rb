@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    session[:user_id] = user.id if !user.inactive?
-    redirect_to root_path, notice: ":)"
+    session[:user_id] = user.id unless user.inactive?
+    redirect_to root_path, notice: ':)'
   end
 
   def destroy
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
   end
 
   def auth
-    @auth ||= request.env["omniauth.auth"]
+    @auth ||= request.env['omniauth.auth']
   end
 end

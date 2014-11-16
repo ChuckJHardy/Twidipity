@@ -1,30 +1,43 @@
 class CreateOmniauthUser
-  def initialize user: User.new, auth:
+  def initialize(user: User.new, auth:)
     @user = user
     @auth = auth
   end
 
-  def self.call *args
+  def self.call(*args)
     new(*args).call
   end
 
   def call
-    user.uid       = auth[:uid]
-    user.token     = credentials[:token]
-    user.secret    = credentials[:secret]
-    user.name      = info[:name]
-    user.nickname  = info[:nickname]
-    user.location  = info[:location]
-    user.time_zone = raw[:time_zone]
-    user.lang      = raw[:lang]
-
-    user.save && user
+    set && user.save && user
   end
 
   protected
+
   attr_reader :user, :auth
 
   private
+
+  def set
+    user.uid = auth[:uid]
+    assign_credentials && assign_info && assign_location
+  end
+
+  def assign_credentials
+    user.token = credentials[:token]
+    user.secret = credentials[:secret]
+  end
+
+  def assign_info
+    user.name = info[:name]
+    user.nickname  = info[:nickname]
+    user.location  = info[:location]
+  end
+
+  def assign_location
+    user.time_zone = raw[:time_zone]
+    user.lang = raw[:lang]
+  end
 
   def credentials
     auth[:credentials]

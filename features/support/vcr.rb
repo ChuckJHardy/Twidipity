@@ -1,11 +1,11 @@
-require "vcr"
+require 'vcr'
 
 VCR.configure do |c|
-  c.cassette_library_dir = "fixtures/vcr_cassettes"
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
   c.hook_into :webmock
 
   # Filter Rails secrets that are strings or numbers
-  secrets_to_filter = Rails.application.secrets.select do |key, value|
+  secrets_to_filter = Rails.application.secrets.select do |_, value|
     value.is_a?(String) || value.is_a?(Numeric)
   end
 
