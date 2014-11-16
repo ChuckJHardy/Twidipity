@@ -5,16 +5,24 @@ Feature: Invite
     Then I should see "Welcome To Twidipity" page title
     And I should see "Signin" on the page
 
-  Scenario: Subscribe (Success)
+  Scenario: Subscribe Email (Success)
     Given I go to the homepage
     And I click on "Request Invite"
-    And I complete and submit a valid subscription form
+    And I complete and submit a valid email
     Then I should be on the homepage
-    And I should see "Check your email" on the page
+    And I should see ":)" on the page
 
-  Scenario: Subscribe (Failure)
+  Scenario: Subscribe Email (Failure)
     Given I go to the homepage
     And I click on "Request Invite"
-    And I complete and submit an invalid subscription form
+    And I complete and submit an invalid email
     Then I should be on the homepage
-    And I should see "An email address must contain a single @" on the page
+    And I should see ":(" on the page
+
+  @omniauth_test
+  Scenario: Subscribe Twitter
+    Given I go to the homepage
+    And I click on "Request Invite"
+    And I complete and submit a valid twitter handle
+    Then I should be on the homepage
+    And I should see ":)" on the page
