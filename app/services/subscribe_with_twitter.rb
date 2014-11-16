@@ -1,14 +1,14 @@
 class SubscribeWithTwitter
-  def initialize address:, controller:
+  def initialize(address:, controller:)
     @address = address
     @controller = controller
   end
 
-  def self.call *args
+  def self.call(*args)
     new(*args).call
   end
 
   def call
-    @controller.redirect_to "/auth/twitter"
+    @controller.redirect_to '/auth/twitter'
   end
 end

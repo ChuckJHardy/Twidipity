@@ -1,17 +1,17 @@
 class SubscribeWithEmail
-  def initialize address:, controller:, optin: true
+  def initialize(address:, controller:, optin: true)
     @address = address
     @controller = controller
     @optin = optin
   end
 
-  def self.call *args
+  def self.call(*args)
     new(*args).call
   end
 
   def call
     gibbon.lists.subscribe options
-    @controller.redirect_to @controller.root_path, notice: ":)"
+    @controller.redirect_to @controller.root_path, notice: ':)'
   end
 
   private

@@ -1,13 +1,13 @@
 class SubscribeWithEmailOrTwitter
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-  def initialize controller:, email:, twitter:
+  def initialize(controller:, email:, twitter:)
     @controller = controller
     @email = email
     @twitter = twitter
   end
 
-  def self.call *args
+  def self.call(*args)
     new(*args).call
   end
 
@@ -28,11 +28,11 @@ class SubscribeWithEmailOrTwitter
   end
 
   def email?
-    !!address.match(VALID_EMAIL_REGEX)
+    address.match VALID_EMAIL_REGEX
   end
 
   def twitter?
-    address.index("@").to_i.zero?
+    address.index('@').to_i.zero?
   end
 
   def address
@@ -40,17 +40,17 @@ class SubscribeWithEmailOrTwitter
   end
 
   class NullSubscription
-    def initialize address:, controller:
+    def initialize(address:, controller:)
       @address = address
       @controller = controller
     end
 
-    def self.call *args
+    def self.call(*args)
       new(*args).call
     end
 
     def call
-      @controller.redirect_to @controller.root_path, notice: ":("
+      @controller.redirect_to @controller.root_path, notice: ':('
     end
   end
 end
