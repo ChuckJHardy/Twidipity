@@ -9,7 +9,7 @@ end
 
 Then(/^I should be on the statement page$/) do
   expect(current_path).to eq(root_path)
-  step 'I should see \'Start\' on the page'
+  step 'I should see \'Start\' button on the page'
 end
 
 Then(/^I should be on the invite page$/) do
