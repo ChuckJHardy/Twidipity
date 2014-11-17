@@ -1,0 +1,14 @@
+<%= form_for @statement do |f| %>
+  <div class='status'>
+    <h3><%= f.submit 'Start' %></h3>
+  </div>
+
+  <%= f.hidden_field :follow, value: 2 %>
+  <%= f.hidden_field :for, value: 86400 %>
+
+  <h1 class='title'>Water Crest</h1>
+  <h2 class='subtitle'>Follow <span>2 Random People</span> for <span>1 Day</span></h2>
+  <div class='links'>
+    <%= link_to 'Signout', logout_path %>
+  </div>
+<% end %>

@@ -16,6 +16,14 @@ Then(/^I should see '(.*?)' on the page$/) do |text|
   expect(page).to have_content text
 end
 
+Then(/^I should see '(.*?)' button on the page$/) do |text|
+  expect(page).to have_button text
+end
+
 Then(/^I should be on the homepage$/) do
   expect(current_path).to eq(root_path)
+end
+
+When(/^I press "(.*?)" button$/) do |name|
+  click_button name
 end
