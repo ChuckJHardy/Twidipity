@@ -11,6 +11,7 @@ class StatementsController < ApplicationController
     statement = Statement.new statement_params
 
     if statement.active!
+      FollowWorker.perform_async statement.id
       redirect_to statement
     else
       render :new

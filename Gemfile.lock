@@ -39,6 +39,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
@@ -48,6 +50,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    connection_pool (2.1.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     cucumber (1.3.17)
@@ -160,6 +163,9 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    redis (3.1.0)
+    redis-namespace (1.5.1)
+      redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
@@ -196,6 +202,12 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    sidekiq (3.2.6)
+      celluloid (= 0.15.2)
+      connection_pool (>= 2.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -220,6 +232,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (1.1.0)
     turbolinks (2.5.1)
       coffee-rails
     tzinfo (1.2.2)
@@ -263,6 +276,7 @@ DEPENDENCIES
   sass-rails (~> 4.0)
   sdoc
   shoulda-matchers
+  sidekiq (~> 3.2)
   simplecov
   skylight (~> 0.4)
   spring
