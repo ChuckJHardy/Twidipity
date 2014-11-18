@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Environment
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.8'
 gem 'pg', '~> 0.17'
 gem 'unicorn', '~> 4.8'
 gem 'envied', '~> 0.8'
