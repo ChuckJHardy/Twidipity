@@ -3,9 +3,7 @@
     <h3><%= link_to 'Signin', '/auth/twitter' %></h3>
   </div>
 
-  <h1 class='title'>
-    <%= text_field_tag :address, nil, required: true, autofocus: true %>
-  </h1>
+  <%= text_field_tag :address, nil, required: true, autofocus: true %>
   <h2 class='subtitle'><span>Twitter </span>Handle or <span>Email </span>Address</h2>
   <div class='links'>
     <%= submit_tag 'Save', class: 'submit' %>

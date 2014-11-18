@@ -13,6 +13,7 @@
 .teaser {
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: $letter-spacing;
 
   .status {
     margin-bottom: 33%;
@@ -21,6 +22,7 @@
       color: $director;
       font-size: $director-font-size;
       font-weight: $font-weight;
+      margin: 0;
 
       a {
         color: inherit;
@@ -39,12 +41,19 @@
 
   .title {
     color: $statement-name;
-    letter-spacing: 25px;
     font-size: 60px;
     font-weight: $font-weight;
+    letter-spacing: 25px;
     line-height: 1;
     margin-top: 0;
     margin-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 24px;
+      letter-spacing: 18px;
+    }
   }
 
   .subtitle {
@@ -81,6 +90,7 @@
     line-height: 1;
     margin-top: 0;
     margin-bottom: 5px;
+    max-width: 100%;
   }
 
   input[type=submit] {
