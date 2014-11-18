@@ -1,7 +1,9 @@
 class FollowWorker
   include Sidekiq::Worker
 
-  def perform(id)
-    puts "********** Follow Worker - #{id}"
+  sidekiq_options retry: false
+
+  def perform(id, quantity)
+    TwitterFollow.call id: id, quantity: quantity
   end
 end

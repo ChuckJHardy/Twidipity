@@ -25,6 +25,7 @@ gem 'sdoc', group: :doc
 # API's
 gem 'gibbon', '~> 1.1'
 gem 'omniauth-twitter', '~> 1.1'
+gem 'twitter', '~> 5.13'
 
 # Tools
 gem 'newrelic_rpm', '~> 3.9.6'
