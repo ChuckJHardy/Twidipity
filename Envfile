@@ -10,8 +10,14 @@ variable :NEWRELIC_LICENSE_KEY, :string
 # API's
 variable :MAILCHIMP_KEY, :string
 variable :MAILCHIMP_LIST_ID, :string
-variable :TWITTER_API_KEY, :string
-variable :TWITTER_API_SECRET, :string
+variable :TWITTER_APP_KEY, :string
+variable :TWITTER_APP_SECRET, :string
+variable :TWITTER_ACCESS_TOKEN, :string
+variable :TWITTER_ACCESS_TOKEN_SECRET, :string
+
+# Custom
+variable :TWITTER_ID_START, :integer
+variable :TWITTER_ID_END, :integer
 
 # Database
 # variable :REDIS_URL, :string, default: 'redis://localhost:6379'
