@@ -23,6 +23,7 @@
       font-size: $director-font-size;
       font-weight: $font-weight;
       margin: 0;
+      padding-left: $letter-spacing;
 
       a {
         color: inherit;
@@ -47,12 +48,14 @@
     line-height: 1;
     margin-top: 0;
     margin-bottom: 5px;
+    padding-left: 25px;
   }
 
   @media (max-width: 768px) {
     .title {
       font-size: 24px;
       letter-spacing: 18px;
+      padding-left: 18px;
     }
   }
 
@@ -62,6 +65,7 @@
     font-weight: $font-weight;
     margin-bottom: 0;
     margin-top: 0;
+    padding-left: $letter-spacing;
 
     span {
       color: $statement-touch;
@@ -71,6 +75,7 @@
   .links{
     color: $director;
     margin-top: 33%;
+    padding-left: $letter-spacing;
 
     a {
       color: $director;
