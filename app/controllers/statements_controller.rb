@@ -32,7 +32,7 @@ class StatementsController < ApplicationController
 
   def statement_params
     params.require(:statement)
-      .permit(:follow, :for)
+      .permit(:follow, :duration)
       .merge(user_id: user_id)
   end
 

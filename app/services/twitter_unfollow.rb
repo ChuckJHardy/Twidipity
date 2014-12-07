@@ -1,6 +1,6 @@
 class TwitterUnfollow
-  def initialize(id:)
-    @id = id
+  def initialize(statement_id:)
+    @statement_id = statement_id
   end
 
   def self.call(*args)
@@ -8,16 +8,20 @@ class TwitterUnfollow
   end
 
   def call
-    client.unfollow [290097288, 15754281]
+    client.unfollow(ids)
   end
 
   private
 
+  def ids
+    statement.follows.pluck(:tuid)
+  end
+
   def client
-    TwitterClient.call user_id: statement.user.id
+    TwitterClient.call(user_id: statement.user.id)
   end
 
   def statement
-    Statement.find @id
+    @statement ||= Statement.find(@statement_id)
   end
 end

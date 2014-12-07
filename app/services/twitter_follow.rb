@@ -23,7 +23,7 @@ class TwitterFollow
   private
 
   def following
-    client.follow ids
+    client.follow(ids)
   end
 
   def done?
@@ -31,14 +31,14 @@ class TwitterFollow
   end
 
   def ids
-    @ids ||= RandomCollection.pluck @quantity
+    @ids ||= RandomCollection.pluck(@quantity)
   end
 
   def client
-    @client ||= TwitterClient.call user_id: statement.user.id
+    @client ||= TwitterClient.call(user_id: statement.user.id)
   end
 
   def statement
-    @statement ||= Statement.find @statement_id
+    @statement ||= Statement.find(@statement_id)
   end
 end

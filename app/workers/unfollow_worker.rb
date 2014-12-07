@@ -4,6 +4,6 @@ class UnfollowWorker
   sidekiq_options retry: false
 
   def perform(id)
-    TwitterUnfollow.call id: id
+    TwitterUnfollow.call(statement_id: id)
   end
 end
