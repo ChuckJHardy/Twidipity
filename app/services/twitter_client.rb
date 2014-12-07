@@ -1,7 +1,6 @@
 class TwitterClient
-  def initialize(user_id:, user_access: true)
+  def initialize(user_id:)
     @user_id = user_id
-    @user_access = user_access
   end
 
   def self.call(*args)
@@ -13,7 +12,7 @@ class TwitterClient
       config.consumer_key        = secrets.twitter_app_key
       config.consumer_secret     = secrets.twitter_app_secret
 
-      if user_access
+      if user_id
         config.access_token        = user.token
         config.access_token_secret = user.secret
       end
@@ -22,7 +21,7 @@ class TwitterClient
 
   protected
 
-  attr_reader :user_access
+  attr_reader :user_id
 
   private
 
