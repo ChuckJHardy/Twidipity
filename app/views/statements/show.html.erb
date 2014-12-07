@@ -1,9 +1,22 @@
+<% if @statement.error? %>
+  <% content_for(:developer) do %>
+    <p><%= @statement.error %></p>
+  <% end %>
+<% end %>
+
 <div class='status'>
   <h3><%= link_to 'Stop', statement_path, method: :delete %></h3>
 </div>
 
 <h1 class='title'>Water Crest</h1>
 <h2 class='subtitle'>Follow <span>2 Random People</span> for <span>1 Day</span></h2>
+
+<ul>
+  <% @statement.follows.each do |follow| %>
+    <li><%= follow.name %></li>
+  <% end %>
+</ul>
+
 <div class='links'>
   <%= link_to 'Signout', logout_path %>
 </div>

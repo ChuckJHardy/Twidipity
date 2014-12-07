@@ -1,3 +1,5 @@
+require_relative '../../lib/twitter_error_factory'
+
 class TwitterFollow
   def initialize(statement_id:, quantity:)
     @statement_id = statement_id
@@ -16,6 +18,8 @@ class TwitterFollow
     end
   rescue Twitter::Error::NotFound
     call unless done?
+  rescue Twitter::Error => e
+    statement.update_attribute(:error, TwitterErrorFactory.build(exception: e))
   ensure
     statement.follows << @follows
   end

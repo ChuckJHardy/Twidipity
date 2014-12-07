@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20141120192336) do
     t.integer  "follow",                 null: false
     t.integer  "duration",   default: 0
     t.integer  "status",     default: 0
+    t.string   "error"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

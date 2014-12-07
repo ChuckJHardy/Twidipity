@@ -8,6 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if Rails.env.development? && content_for?(:developer) %>
+    <div id='developer'>
+      <%= yield :developer %>
+    </div>
+  <% end %>
+
   <div class='flexcontainer'>
     <div class='teaser'>
       <%= yield %>

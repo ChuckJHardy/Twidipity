@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe TwitterFollow do
-  subject(:twitter_follow) do
+  subject(:twitter) do
     described_class.call(statement_id: id, quantity: quantity)
   end
 
@@ -19,14 +19,22 @@ describe TwitterFollow do
     allow(Statement).to receive(:find).with(id) { statement }
     allow(TwitterClient).to receive(:call).with(user_id: user_id) { client }
     allow(RandomCollection).to receive(:pluck).with(quantity) { collection }
-
-    expect(client).to receive(:follow).with(collection)
-      .and_raise(Twitter::Error::NotFound)
-      .and_return(followed)
   end
 
   it 'saves all the follows' do
-    twitter_follow
+    expect(client).to receive(:follow).with(collection)
+      .and_raise(Twitter::Error::NotFound)
+      .and_return(followed)
+
+    twitter
     expect(statement.follows.map(&:tuid)).to eq(followed.map(&:id))
+  end
+
+  it 'saves the error' do
+    allow(client).to receive(:follow).and_raise(Twitter::Error)
+    expect(statement).to receive(:update_attribute)
+      .with(:error, Twitter::Error)
+
+    twitter
   end
 end

@@ -5,6 +5,7 @@ class CreateStatements < ActiveRecord::Migration
       t.integer :follow, null: false
       t.integer :duration, default: 0
       t.integer :status, default: 0
+      t.string :error
 
       t.timestamps
     end
