@@ -11,9 +11,11 @@
 <h1 class='title'>Water Crest</h1>
 <h2 class='subtitle'>Follow <span>2 Random People</span> for <span>1 Day</span></h2>
 
-<ul>
+<ul class='follows'>
   <% @statement.follows.each do |follow| %>
-    <li><%= follow.name %></li>
+    <li>
+      <%= link_to(image_tag(follow.profile_image_uri, size: "20x20", alt: follow.screen_name), follow.uri, target: :blank) %>
+    </li>
   <% end %>
 </ul>
 
