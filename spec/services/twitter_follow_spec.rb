@@ -13,7 +13,7 @@ describe TwitterFollow do
   let(:user) { User.new(id: user_id) }
   let(:client) { Twitter::REST::Client.new }
   let(:collection) { [1, 9] }
-  let(:followed) { [OpenStruct.new(id: 1), OpenStruct.new(id: 9)] }
+  let(:followed) { [build(:mock_twitter_user), build(:mock_twitter_user)] }
 
   before do
     allow(Statement).to receive(:find).with(id) { statement }
@@ -27,6 +27,6 @@ describe TwitterFollow do
 
   it 'saves all the follows' do
     twitter_follow
-    expect(statement.follows.map(&:tuid)).to eq([1, 9])
+    expect(statement.follows.map(&:tuid)).to eq(followed.map(&:id))
   end
 end

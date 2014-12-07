@@ -10,9 +10,9 @@ class TwitterFollow
   end
 
   def call
-    following.map do |follow|
+    followed_users.map do |user|
       break if done?
-      @follows << Follow.new(tuid: follow.id)
+      @follows << BuildFollowFromTwitterUser.call(user: user)
     end
   rescue Twitter::Error::NotFound
     call unless done?
@@ -22,7 +22,7 @@ class TwitterFollow
 
   private
 
-  def following
+  def followed_users
     client.follow(ids)
   end
 

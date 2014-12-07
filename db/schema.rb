@@ -17,8 +17,12 @@ ActiveRecord::Schema.define(version: 20141120192336) do
   enable_extension "plpgsql"
 
   create_table "follows", force: true do |t|
-    t.integer  "statement_id",           null: false
-    t.integer  "tuid",         limit: 8, null: false
+    t.integer  "statement_id",                null: false
+    t.integer  "tuid",              limit: 8, null: false
+    t.string   "name"
+    t.string   "screen_name"
+    t.string   "profile_image_uri"
+    t.string   "uri"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
