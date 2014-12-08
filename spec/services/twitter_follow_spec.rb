@@ -2,39 +2,45 @@ require 'rails_helper'
 
 describe TwitterFollow do
   subject(:twitter) do
-    described_class.call(statement_id: id, quantity: quantity)
+    described_class.call(statement_id: statement.id, quantity: quantity)
   end
 
-  let(:id) { 1 }
   let(:quantity) { 2 }
-  let(:user_id) { 4 }
+  let(:client) { double('TwitterClient') }
 
-  let(:statement) { Statement.new(user: user) }
-  let(:user) { User.new(id: user_id) }
-  let(:client) { Twitter::REST::Client.new }
-  let(:collection) { [1, 9] }
-  let(:followed) { [build(:mock_twitter_user), build(:mock_twitter_user)] }
+  let!(:suggestion) { create(:suggestion) }
+  let!(:statement) { create(:statement) }
+
+  let(:twitter_user) do
+    instance_double('Twitter::User', id: suggestion.tuid)
+  end
 
   before do
-    allow(Statement).to receive(:find).with(id) { statement }
-    allow(TwitterClient).to receive(:call).with(user_id: user_id) { client }
-    allow(RandomCollection).to receive(:pluck).with(quantity) { collection }
+    allow(TwitterClient).to receive(:call)
+      .with(user_id: statement.user.id) { client }
   end
 
-  it 'saves all the follows' do
-    expect(client).to receive(:follow).with(collection)
+  it 'assigns suggestions to statement' do
+    expect(client).to receive(:follow)
+      .with([suggestion.tuid])
       .and_raise(Twitter::Error::NotFound)
-      .and_return(followed)
+      .and_return([twitter_user])
 
     twitter
-    expect(statement.follows.map(&:tuid)).to eq(followed.map(&:id))
+
+    expect(statement.suggestions).to eq([suggestion])
   end
 
-  it 'saves the error' do
-    allow(client).to receive(:follow).and_raise(Twitter::Error)
-    expect(statement).to receive(:update_attribute)
-      .with(:error, Twitter::Error)
+  context 'when done' do
+    let(:quantity) { 0 }
 
-    twitter
+    it 'does not assign more than requested' do
+      allow(client).to receive(:follow)
+        .and_return([twitter_user])
+
+      twitter
+
+      expect(statement.suggestions).to eq([])
+    end
   end
 end

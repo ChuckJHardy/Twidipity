@@ -4,7 +4,7 @@ class TwitterFollow
   def initialize(statement_id:, quantity:)
     @statement_id = statement_id
     @quantity = quantity.to_i
-    @follows = []
+    @suggestions = []
   end
 
   def self.call(*args)
@@ -14,28 +14,28 @@ class TwitterFollow
   def call
     followed_users.map do |user|
       break if done?
-      @follows << BuildFollowFromTwitterUser.call(user: user)
+      @suggestions << Suggestion.find_by(tuid: user.id)
     end
   rescue Twitter::Error::NotFound
     call unless done?
   rescue Twitter::Error => e
     statement.update_attribute(:error, TwitterErrorFactory.build(exception: e))
   ensure
-    statement.follows << @follows
+    statement.suggestions << @suggestions
   end
 
   private
 
   def followed_users
-    client.follow(ids)
+    client.follow(tuids)
   end
 
   def done?
-    @follows.size == @quantity
+    @suggestions.size == @quantity
   end
 
-  def ids
-    @ids ||= RandomCollection.pluck(@quantity)
+  def tuids
+    @tuids ||= Suggestion.random(@quantity).map(&:tuid)
   end
 
   def client

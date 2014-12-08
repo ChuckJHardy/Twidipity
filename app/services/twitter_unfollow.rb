@@ -14,7 +14,7 @@ class TwitterUnfollow
   private
 
   def ids
-    statement.follows.pluck(:tuid)
+    statement.suggestions.pluck(:tuid)
   end
 
   def client

@@ -1,6 +1,5 @@
 FactoryGirl.define do
-  factory :follow do
-    statement
+  factory :suggestion do
     sequence(:tuid, 260_000)
   end
 end
