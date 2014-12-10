@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    uid '12sdf347'
+    sequence(:uid, 1800) { |number| "#{number}abc" }
+    sequence(:token, 123)
+    sequence(:secret, 987)
     role 0
-    token 123
-    secret 987
   end
 end

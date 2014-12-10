@@ -3,10 +3,11 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Environment
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.8'
 gem 'pg', '~> 0.17'
 gem 'unicorn', '~> 4.8'
 gem 'envied', '~> 0.8'
+gem 'sidekiq', '~> 3.2'
 
 # Assets
 gem 'sass-rails', '~> 4.0'
@@ -24,6 +25,7 @@ gem 'sdoc', group: :doc
 # API's
 gem 'gibbon', '~> 1.1'
 gem 'omniauth-twitter', '~> 1.1'
+gem 'twitter', '~> 5.13'
 
 # Tools
 gem 'newrelic_rpm', '~> 3.9.6'

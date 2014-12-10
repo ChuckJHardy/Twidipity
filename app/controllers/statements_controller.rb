@@ -11,6 +11,7 @@ class StatementsController < ApplicationController
     statement = Statement.new statement_params
 
     if statement.active!
+      FollowWorker.perform_async statement.id, statement_params[:follow]
       redirect_to statement
     else
       render :new
@@ -19,6 +20,7 @@ class StatementsController < ApplicationController
 
   def destroy
     @statement.inactive!
+    UnfollowWorker.perform_async @statement.id
     redirect_to root_path
   end
 
@@ -30,7 +32,7 @@ class StatementsController < ApplicationController
 
   def statement_params
     params.require(:statement)
-      .permit(:follow, :for)
+      .permit(:follow, :duration)
       .merge(user_id: user_id)
   end
 
