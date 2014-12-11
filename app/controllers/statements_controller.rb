@@ -4,6 +4,10 @@ class StatementsController < ApplicationController
   def show; end
 
   def new
+    user.statements.last.tap do |statement|
+      redirect_to statement_path(statement) if statement.try(:active?)
+    end
+
     @statement = Statement.new
   end
 

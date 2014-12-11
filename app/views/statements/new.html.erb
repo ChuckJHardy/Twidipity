@@ -1,13 +1,17 @@
 <%= form_for @statement do |f| %>
-  <div class='status'>
-    <h3><%= f.submit 'Start' %></h3>
-  </div>
-
   <%= f.hidden_field :follow, value: 4 %>
   <%= f.hidden_field :duration, value: 86400 %>
 
-  <h2 class='subtitle'>Follow <span>four</span> random people every <span>24 hours</span></h2>
-  <div class='links'>
-    <%= link_to 'Signout', logout_path %>
-  </div>
+  <h2 class='statement'>
+    <%= f.submit 'Follow' %>
+  </h2>
+
+  <ul class='suggestions'>
+    <li><div class="circle"></div></li>
+    <li><div class="circle"></div></li>
+    <li><div class="circle"></div></li>
+    <li><div class="circle"></div></li>
+  </ul>
 <% end %>
+
+<%= link_to 'Signout', logout_path %>

@@ -1,15 +1,5 @@
-<div class='status'>
-  <% if flash.any? %>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :h3, msg %>
-    <% end %>
-  <% else %>
-    <h3><%= link_to 'Request Invite', new_invite_path %></h3>
-  <% end %>
-</div>
-
-<div class="logo"></div>
-<h2 class='subtitle'><span>Twitter</span> Discovery with <span>Twidipity</span></h2>
-<div class='links'>
-  <a href='https://twitter.com/intent/tweet?original_referer=<%= root_url %>&status=The%20discovery%20of%20fortunate%20Twitter%20events%20by%20accident%20with%20@Twidipity <%= root_url %>'>Share</a>
-</div>
+<h2 class='statement'>
+  <%= link_to 'Join', '/auth/twitter' %>
+  <span>Twidipity
+  to <a href='https://twitter.com/intent/tweet?original_referer=<%= root_url %>&status=Join%20@Twidipity%20in%20the%20discovery%20of%20Twitter <%= root_url %>'>share</a> in the discovery of <span>Twitter</span>
+</h2>

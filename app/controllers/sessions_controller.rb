@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    session[:user_id] = user.id unless user.inactive?
-    redirect_to root_path, notice: ':)'
+    session[:user_id] = user.id
+    redirect_to existing? ? statement_path(statement) : root_path
   end
 
   def destroy
@@ -11,9 +11,24 @@ class SessionsController < ApplicationController
 
   private
 
+  def existing?
+    statement.try(:active?)
+  end
+
+  def statement
+    @statement ||= user.statements.last
+  end
+
   def user
-    User.find_by(uid: auth[:uid]) ||
-      User.create_with_omniauth(auth: auth)
+    @user ||= find_user || create_user
+  end
+
+  def find_user
+    User.find_by(uid: auth[:uid])
+  end
+
+  def create_user
+    User.create_with_omniauth(auth: auth)
   end
 
   def auth
