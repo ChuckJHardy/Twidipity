@@ -13,3 +13,18 @@ Feature: Statement
     And I click on 'Unfollow'
     Then I should see 'Follow' button on the page
     And I should have a new Statement Record with a "inactive" status
+
+  @omniauth_test
+  Scenario: Share Twidipity
+    Given I am a signed in user
+    Then I should see a Twitter "Share Twidipity" link
+
+  @omniauth_test
+  Scenario: Feedback
+    Given I am a signed in user
+    Then I should see a Feedback link
+
+  @omniauth_test
+  Scenario: Feature Requests
+    Given I am a signed in user
+    Then I should see a Feature Requests link
