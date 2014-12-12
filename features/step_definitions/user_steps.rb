@@ -12,3 +12,7 @@ Then(/^I should be on the landing page$/) do
   expect(current_path).to eq(root_path)
   step 'I should see \'Join\' on the page'
 end
+
+Then(/^My user should be deleted$/) do
+  expect(User.count).to eq(0)
+end
