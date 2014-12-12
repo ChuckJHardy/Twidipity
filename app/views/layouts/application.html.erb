@@ -17,6 +17,24 @@
     </div>
   <% end %>
 
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <span class="glyphicon glyphicon-cog"></span>
+          </a>
+
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Feedback</a></li>
+
+            <%= yield :nav %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <div class='flexcontainer'>
     <content class='container'>
       <%= yield %>

@@ -18,6 +18,7 @@ gem 'therubyracer', '~> 0.12', platforms: :ruby
 gem 'jquery-rails', '~> 3.1'
 gem 'turbolinks', '~> 2.5'
 gem 'normalize-rails', '~> 3.0.1'
+gem 'bootstrap-sass', '~> 3.3'
 
 # Docs
 gem 'sdoc', group: :doc

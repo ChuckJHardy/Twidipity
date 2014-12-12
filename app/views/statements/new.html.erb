@@ -1,3 +1,5 @@
+<% content_for(:nav) { render partial: "nav" } %>
+
 <%= form_for @statement do |f| %>
   <%= f.hidden_field :follow, value: 4 %>
   <%= f.hidden_field :duration, value: 86400 %>
@@ -13,5 +15,3 @@
     <li><div class="circle"></div></li>
   </ul>
 <% end %>
-
-<%= link_to 'Signout', logout_path %>

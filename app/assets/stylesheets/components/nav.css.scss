@@ -1,0 +1,11 @@
+.navbar {
+  background: transparent;
+  border: none;
+  margin: 0px;
+
+  .navbar-right {
+    .glyphicon-cog {
+      color: $statement-grey;
+    }
+  }
+}

@@ -1,5 +1,9 @@
 # https://gist.github.com/zhengjia/428105
 
+Given(/^launch$/) do
+  save_and_open_page
+end
+
 Given(/^I go to the homepage$/) do
   visit '/'
 end

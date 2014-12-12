@@ -5,6 +5,9 @@
 
 @charset "UTF-8";
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "settings";
 @import "layout";
+@import "components";
 @import "statements";

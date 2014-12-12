@@ -1,4 +1,4 @@
-Feature: Invite
+Feature: Home Page
   Scenario: Visitor
     Given I go to the homepage
     Then I should see 'Welcome To Twidipity' page title
@@ -7,3 +7,7 @@ Feature: Invite
   Scenario: Share
     Given I go to the homepage
     Then I should see a Twitter Share link
+
+  Scenario: Settings
+    Given I go to the homepage
+    And I should see 'Feedback' on the page
