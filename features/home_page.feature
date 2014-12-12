@@ -7,7 +7,3 @@ Feature: Home Page
   Scenario: Share
     Given I go to the homepage
     Then I should see a Twitter "share" link
-
-  Scenario: Settings
-    Given I go to the homepage
-    And I should see 'Feedback' on the page

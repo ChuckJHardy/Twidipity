@@ -18,3 +18,8 @@ Feature: Statement
   Scenario: Share Twidipity
     Given I am a signed in user
     Then I should see a Twitter "Share Twidipity" link
+
+  @omniauth_test
+  Scenario: Feedback
+    Given I am a signed in user
+    Then I should see a Feedback link
