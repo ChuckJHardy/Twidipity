@@ -6,7 +6,7 @@ Feature: Home Page
 
   Scenario: Share
     Given I go to the homepage
-    Then I should see a Twitter Share link
+    Then I should see a Twitter "share" link
 
   Scenario: Settings
     Given I go to the homepage
