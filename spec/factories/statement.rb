@@ -11,6 +11,8 @@ FactoryGirl.define do
         suggestions_ending_at DateTime.now + 2.days
       end
 
+      status :active
+
       after(:create) do |statement, evaluator|
         statement.update_attributes!(
           ending_at: evaluator.suggestions_ending_at,

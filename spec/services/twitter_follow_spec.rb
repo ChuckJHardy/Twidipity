@@ -52,7 +52,7 @@ describe TwitterFollow do
     end
 
     it 'sets statement to inactive' do
-      expect(statement.status).to eq("inactive")
+      expect(statement.status).to eq('inactive')
     end
   end
 end

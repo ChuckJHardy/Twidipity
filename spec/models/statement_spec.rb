@@ -14,7 +14,7 @@ RSpec.describe Statement, type: :model do
     end
   end
 
-  describe ".ended" do
+  describe '.ended' do
     subject(:scope) { described_class.ended(date) }
 
     let!(:statement) do

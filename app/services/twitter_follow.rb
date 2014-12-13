@@ -21,17 +21,23 @@ class TwitterFollow
   rescue Twitter::Error => e
     statement.update_attribute(:error, TwitterErrorFactory.build(exception: e))
   ensure
+    update_statement!
+  end
+
+  private
+
+  def update_statement!
     if @suggestions.any?
-      statement.update_attributes!(ending_at: ending_at, suggestions: @suggestions)
+      statement.update_attributes!(
+        ending_at: ending_at, suggestions: @suggestions
+      )
     else
       statement.inactive!
     end
   end
 
-  private
-
   def ending_at
-    DateTime.now + @quantity.days
+    DateTime.now + statement.duration.days
   end
 
   def followed_users

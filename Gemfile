@@ -8,6 +8,7 @@ gem 'pg', '~> 0.17'
 gem 'unicorn', '~> 4.8'
 gem 'envied', '~> 0.8'
 gem 'sidekiq', '~> 3.2'
+gem "clockwork", "~> 0.7", require: false
 
 # Assets
 gem 'sass-rails', '~> 4.0'
