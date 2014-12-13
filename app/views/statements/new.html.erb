@@ -1,4 +1,5 @@
-<% content_for(:nav) { render partial: "nav" } %>
+<% content_for(:title) { 'Twidipity | Follow' } %>
+<% content_for(:nav) { render partial: 'nav' } %>
 
 <%= form_for @statement do |f| %>
   <%= f.hidden_field :follow, value: 4 %>
@@ -9,9 +10,9 @@
   </h2>
 
   <ul class='suggestions'>
-    <li><div class="circle"></div></li>
-    <li><div class="circle"></div></li>
-    <li><div class="circle"></div></li>
-    <li><div class="circle"></div></li>
+    <li><div class='circle'></div></li>
+    <li><div class='circle'></div></li>
+    <li><div class='circle'></div></li>
+    <li><div class='circle'></div></li>
   </ul>
 <% end %>

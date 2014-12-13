@@ -2,7 +2,9 @@ Feature: Statement
   @omniauth_test
   Scenario: Follow
     Given I am a signed in user
+    Then I should see 'Twidipity | Follow' page title
     When I press "Follow" button
+    Then I should see 'Twidipity | Following' page title
     Then I should see 'Unfollow' on the page
     And I should have a new Statement Record with a "active" status
 
