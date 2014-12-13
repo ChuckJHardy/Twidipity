@@ -44,6 +44,9 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    clockwork (0.7.7)
+      activesupport
+      tzinfo
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
@@ -281,6 +284,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3)
+  clockwork (~> 0.7)
   coffee-rails (~> 4.0)
   cucumber-rails
   database_cleaner
