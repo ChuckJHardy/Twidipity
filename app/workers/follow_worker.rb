@@ -13,12 +13,32 @@ class FollowWorker
     end
 
     def perform
-      statements.each do |statement|
-        FollowWorker.perform_async(statement.id, statement.follow)
-      end
+      statements.each(&refollow)
     end
 
     private
+
+    def refollow
+      lambda do |statement|
+        destroy(statement)
+
+        duplicate(statement).tap do |ns|
+          FollowWorker.perform_async(ns.id, ns.follow)
+        end
+      end
+    end
+
+    def destroy(statement)
+      statement.inactive!
+      UnfollowWorker.perform_async(statement.id)
+    end
+
+    def duplicate(statement)
+      statement.dup.tap do |s|
+        s.ending_at = nil
+        s.active!
+      end
+    end
 
     def statements
       Statement.active.ended
