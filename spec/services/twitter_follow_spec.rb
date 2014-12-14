@@ -10,15 +10,12 @@ describe TwitterFollow do
 
   let!(:suggestion) { create(:suggestion) }
   let!(:statement) { create(:statement) }
-  let!(:ending_at) { DateTime.parse('2014-02-04 14:18') }
 
   let(:twitter_user) do
     instance_double('Twitter::User', id: suggestion.tuid)
   end
 
   before do
-    allow(DateTime).to receive(:now) { ending_at }
-
     allow(TwitterClient).to receive(:call)
       .with(user_id: statement.user.id) { client }
   end
@@ -36,7 +33,7 @@ describe TwitterFollow do
     allow(client).to receive(:follow) { [twitter_user] }
 
     twitter
-    expect(statement.reload.ending_at.to_s).to eq('2014-02-06 14:18:00 UTC')
+    expect(statement.reload.ending_at).to be > DateTime.now
   end
 
   context 'when done or no results' do

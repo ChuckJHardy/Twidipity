@@ -3,7 +3,7 @@ FactoryGirl.define do
     user
 
     follow 2
-    duration 2
+    duration 864_00
 
     factory :statement_with_suggestions do
       transient do

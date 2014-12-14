@@ -37,7 +37,7 @@ class TwitterFollow
   end
 
   def ending_at
-    DateTime.now + statement.duration.days
+    statement.duration.seconds.since
   end
 
   def followed_users
