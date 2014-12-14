@@ -37,6 +37,9 @@ group :development do
   gem 'foreman'
   gem 'spring'
   gem 'rubocop', require: false
+
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
 end
 
 group :development, :test do
@@ -57,4 +60,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'daemons', '~> 1.1.9'
 end

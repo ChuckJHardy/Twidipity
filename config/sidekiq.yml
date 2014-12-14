@@ -1,0 +1,8 @@
+---
+:verbose: true
+:concurrency: 25
+:pidfile: /home/deployer/apps/twidipity/shared/sidekiq.pid
+:logfile: /home/deployer/apps/twidipity/current/log/sidekiq.log
+:timeout: 8
+:queues:
+  - [default, 9]

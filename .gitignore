@@ -4,3 +4,5 @@ logfile
 tmp
 log
 coverage
+config/database.yml
+.capistrano
