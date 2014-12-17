@@ -1,0 +1,9 @@
+<% if @statement.error? %>
+  <% content_for(:developer) do %>
+    <p><%= @statement.error %></p>
+  <% end %>
+<% end %>
+
+<% content_for(:title) { 'Twidipity | Following' } %>
+<% content_for(:nav) { render partial: 'nav' } %>
+

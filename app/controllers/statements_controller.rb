@@ -1,7 +1,7 @@
 class StatementsController < ApplicationController
-  before_action :find_statement, only: [:show, :destroy]
-
-  def show; end
+  def index
+    @statements = user.statements.all
+  end
 
   def new
     user.statements.last.tap do |statement|
@@ -23,16 +23,15 @@ class StatementsController < ApplicationController
   end
 
   def destroy
-    @statement.inactive!
-    UnfollowWorker.perform_async @statement.id
+    user.statements.find(params[:id]).tap do |statement|
+      statement.inactive!
+      UnfollowWorker.perform_async statement.id
+    end
+
     redirect_to root_path
   end
 
   private
-
-  def find_statement
-    @statement = user.statements.find params[:id]
-  end
 
   def statement_params
     params.require(:statement)
