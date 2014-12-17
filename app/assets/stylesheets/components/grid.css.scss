@@ -6,21 +6,25 @@
 }
 
 .grid-gallery figure {
-  margin: 10px;
-  padding: 50px 20px;
+  margin: 20px;
   text-align: center;
 }
 
 .grid-gallery figure img {
-  border-radius: 50%;
   display: block;
-  margin: 0 auto 30px auto;
-  width: 100px;
+  width: 100%;
+}
+
+.grid-gallery figcaption {
+  border: $border-size solid $border-color;
+  border-top: 0;
+  min-height: 200px;
+  padding: 30px 20px;
 }
 
 .grid-gallery figcaption h3 {
   color: $accent-color;
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .grid-gallery figcaption p {
@@ -44,7 +48,6 @@
 }
 
 .grid figure {
-  border: $border-size solid $border-color;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
