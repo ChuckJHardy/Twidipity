@@ -1,11 +1,8 @@
 <% statement.suggestions.map(&SuggestionDecorator).each do |suggestion| %>
-<li>
-  <figure>
-    <%= link_to(image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name), suggestion.uri, target: :blank) %>
-    <figcaption>
-      <h3>@<%= suggestion.screen_name %></h3>
-      <p>@<%= suggestion.description %></p>
-    </figcaption>
-  </figure>
-</li>
+  <li>
+    <div>
+      <%= link_to(image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name), suggestion.uri, target: :blank) %>
+      <span>@<%= suggestion.screen_name %></span>
+    <div>
+  </li>
 <% end %>

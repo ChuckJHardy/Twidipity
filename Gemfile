@@ -20,7 +20,7 @@ gem 'jquery-rails', '~> 3.1'
 gem 'turbolinks', '~> 2.5'
 gem 'normalize-rails', '~> 3.0.1'
 gem 'bootstrap-sass', '~> 3.3'
-gem 'modernizr-rails', '~> 2.7'
+gem 'bourbon'
 
 # Docs
 gem 'sdoc', group: :doc
