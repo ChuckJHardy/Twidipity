@@ -6,7 +6,6 @@ $body-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Hel
 
 $body-font-size: 13px;
 $header-font-size: 24px;
-
 $module-header-font-size: 18px;
 
 $font-weight-normal: 300;
@@ -20,6 +19,7 @@ $border-color: #3D3A35;
 
 // Border, spacing, and widths
 $border-size: 1px;
+$border-style: solid;
 
 // Mixins
 @mixin gradient {

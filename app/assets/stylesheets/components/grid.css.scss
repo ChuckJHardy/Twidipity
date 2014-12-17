@@ -16,7 +16,7 @@
 }
 
 .grid-gallery figcaption {
-  border: $border-size solid $border-color;
+  border: $border-size $border-style $border-color;
   border-top: 0;
   min-height: 200px;
   padding: 30px 20px;
