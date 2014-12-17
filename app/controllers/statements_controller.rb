@@ -1,6 +1,6 @@
 class StatementsController < ApplicationController
   def index
-    @statements = user.statements.all
+    @statements = Suggestion.first(40).map(&SuggestionDecorator)
   end
 
   def new

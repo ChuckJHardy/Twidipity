@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141208192117) do
     t.integer  "tuid",              limit: 8, null: false
     t.string   "slug"
     t.string   "name"
+    t.text     "description"
     t.string   "screen_name"
     t.string   "profile_image_uri"
     t.string   "uri"

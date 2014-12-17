@@ -4,6 +4,7 @@ class CreateSuggestions < ActiveRecord::Migration
       t.integer :tuid, null: false, limit: 8
       t.string :slug
       t.string :name
+      t.text   :description
       t.string :screen_name
       t.string :profile_image_uri
       t.string :uri

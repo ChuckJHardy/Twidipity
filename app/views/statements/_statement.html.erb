@@ -1,0 +1,9 @@
+<li>
+  <figure>
+    <%= link_to(image_tag(statement.profile_image_uri, alt: statement.screen_name), statement.uri, target: :blank) %>
+    <figcaption>
+      <h3>@<%= statement.screen_name %></h3>
+      <p>@<%= statement.description %></p>
+    </figcaption>
+  </figure>
+</li>
