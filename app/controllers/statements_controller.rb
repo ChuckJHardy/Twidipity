@@ -1,6 +1,6 @@
 class StatementsController < ApplicationController
   def index
-    @statements = user.statements
+    @statements = user.statements.order(created_at: :desc)
     @new_statement = Statement.new
   end
 
