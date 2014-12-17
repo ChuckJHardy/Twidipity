@@ -1,6 +1,6 @@
-<% if @statement.error? %>
+<% if @statements.last.error? %>
   <% content_for(:developer) do %>
-    <p><%= @statement.error %></p>
+    <p><%= @statements.last.error %></p>
   <% end %>
 <% end %>
 
