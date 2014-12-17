@@ -1,6 +1,15 @@
 <% content_for(:title) { 'Twidipity | Following' } %>
 <% content_for(:nav) { render partial: 'nav' } %>
 
+<%= form_for @new_statement do |f| %>
+  <%= f.hidden_field :follow, value: 1 %>
+  <%= f.hidden_field :duration, value: 86400 %>
+
+  <h2 class='statement'>
+    <%= f.submit 'Follow' %>
+  </h2>
+<% end %>
+
 <div id="grid-gallery" class="grid-gallery">
   <section class="grid-wrap">
     <ul class="grid">

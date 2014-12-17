@@ -2,7 +2,7 @@ require './lib/beta_user_contraint'
 
 Rails.application.routes.draw do
   resources :invite, only: [:index]
-  resources :statements, only: [:index]
+  resources :statements, except: [:show, :new]
   resources :users, only: [:destroy]
 
   get '/auth/twitter/callback' => 'sessions#create'

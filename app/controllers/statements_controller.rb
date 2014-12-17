@@ -1,6 +1,7 @@
 class StatementsController < ApplicationController
   def index
-    @statements = Suggestion.first(40).map(&SuggestionDecorator)
+    @statements = user.statements
+    @new_statement = Statement.new
   end
 
   def new
@@ -16,7 +17,7 @@ class StatementsController < ApplicationController
 
     if statement.active!
       FollowWorker.perform_async statement.id, statement_params[:follow]
-      redirect_to statement
+      redirect_to statements_path
     else
       render :new
     end
