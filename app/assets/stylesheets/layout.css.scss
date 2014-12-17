@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-  background-color: $background;
-  font-family: $default-font;
-  font-weight: $font-weight;
+  background-color: $background-color;
+  color: $main-color;
+  margin-top: 60px;
 }

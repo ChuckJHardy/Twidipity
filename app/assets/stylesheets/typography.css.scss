@@ -1,0 +1,10 @@
+body {
+	font-size: $body-font-size;
+}
+
+.grid-gallery figcaption h3 {
+	font: {
+		size: $module-header-font-size;
+		weight: $font-weight-normal;
+	}	
+}
