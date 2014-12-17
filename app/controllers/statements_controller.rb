@@ -1,6 +1,10 @@
 class StatementsController < ApplicationController
   before_action :find_statement, only: [:show, :destroy]
 
+  def index
+    @suggestions = Suggestion.limit(30)
+  end
+
   def show; end
 
   def new

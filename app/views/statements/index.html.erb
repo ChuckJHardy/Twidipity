@@ -1,0 +1,10 @@
+<% content_for(:title) { 'Twidipity | Follow' } %>
+
+<ul id="suggestions-grid">
+  <li class="add">+</li>
+  <% @suggestions.each do |suggestion|  %>
+    <li>
+      <%= link_to(image_tag(suggestion.profile_image_uri.gsub('_normal.png', '_200x200.png').gsub('_normal.jpeg', '_200x200.jpeg').gsub('_normal.jpg', '_200x200.jpg'), alt: suggestion.screen_name), suggestion.uri, target: :blank) %>
+    </li>
+  <% end %>
+</ul>

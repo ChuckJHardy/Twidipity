@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/',
-    to: 'statements#new',
+    to: 'statements#index',
     constraints: BetaUserConstraint,
     as: :new_statement_root
 
