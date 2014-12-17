@@ -6,20 +6,4 @@ body {
   background-color: $background;
   font-family: $default-font;
   font-weight: $font-weight;
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: $director;
-}
-
-#developer {
-  background-color: $alert;
-  position: absolute;
-  width: 100%;
-
-  p {
-    font-size: 11px;
-  }
 }
