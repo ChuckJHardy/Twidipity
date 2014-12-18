@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def destroy
-    unfollow and user.delete
+    unfollow && user.delete
     redirect_to logout_path
   end
 

@@ -2,7 +2,7 @@ Feature: User
   @omniauth_test
   Scenario: Signin
     Given I go to the homepage
-    When I click on 'Join'
+    When I click on 'Signin'
     Then I should be on the statement page
 
   @omniauth_test
