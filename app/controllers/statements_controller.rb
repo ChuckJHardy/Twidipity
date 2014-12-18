@@ -32,6 +32,8 @@ class StatementsController < ApplicationController
 
   def find_statement
     @statement = user.statements.find params[:id]
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   def statement_params
