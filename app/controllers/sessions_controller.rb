@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
     redirect_to existing? ? statement_path(statement) : root_path
   end
 
+  def failure
+    redirect_to root_path, error: params[:message]
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_path

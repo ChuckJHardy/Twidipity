@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:destroy]
 
   get '/auth/twitter/callback' => 'sessions#create'
+  get '/auth/failure' => 'sessions#failure'
   get '/logout' => 'sessions#destroy'
 
   get '/',
