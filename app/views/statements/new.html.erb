@@ -6,7 +6,11 @@
   <%= f.hidden_field :duration, value: 86400 %>
 
   <h2 class='statement'>
-    <%= f.submit 'Follow' %>
+    <% if flash[:notice] %>
+      <a href"#"><%= flash[:notice] %></a>
+    <% else %>
+      <%= f.submit 'Follow' %>
+    <% end %>
   </h2>
 
   <ul class='suggestions'>

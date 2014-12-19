@@ -1,7 +1,10 @@
 class StatementsController < ApplicationController
   before_action :find_statement, only: [:show, :destroy]
 
-  def show; end
+  def show
+    return true unless @statement.error?
+    redirect_to new_statement_path, notice: 'Twitter Said No'
+  end
 
   def new
     user.statements.last.tap do |statement|
