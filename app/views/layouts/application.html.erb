@@ -20,7 +20,9 @@
   <%= yield :nav %>
 
   <content class='container'>
-    <%= yield %>
+    <div class="grid-container">
+      <%= yield %>
+    </div>
   </contect>
 
   <% if Rails.env.production? %>

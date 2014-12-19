@@ -1,16 +1,11 @@
 <% content_for(:title) { 'Twidipity | Following' } %>
 <% content_for(:nav) { render partial: 'nav' } %>
 
-
-<ul class="chess-board">
-  <li>
-    <div>
-      <%= form_for @new_statement do |f| %>
-        <%= f.hidden_field :follow, value: 1 %>
-        <%= f.hidden_field :duration, value: 86400 %>
-        <%= f.submit '+' %>
-      <% end %>
-    <div>
-  </li>
-  <%= render partial: "statement", collection: @statements %>
-</ul>
+<div class="grid-item">
+  <%= form_for @new_statement do |f| %>
+    <%= f.hidden_field :follow, value: 1 %>
+    <%= f.hidden_field :duration, value: 86400 %>
+    <%= f.submit '+', :class => "add-grid-item" %>
+  <% end %>
+</div>
+<%= render partial: "statement", collection: @statements %>

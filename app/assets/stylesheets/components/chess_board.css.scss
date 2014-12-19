@@ -1,34 +1,45 @@
-ul.chess-board {
-  list-style: none;
+.grid-container {
+  margin: 0 auto;
+  width: 1080px;
+}
 
-  li {
-    float: left;  
-    width: 20%;
-    margin-bottom: 50px;
+.grid-item {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 0 20px 20px 0;
+  position: relative;
 
-    div {
-      width: 200px; 
-      height: 200px; 
-      position: relative;
-
-      input[type="submit"] {
-        background: inherit;
-        border: none;
-        font-size: 125px;
-        height: 200px;
-        width: 200px;
-      }
-
-      span {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        height: 40px;
-        width: 100%;
-        background: grey;
-        text-align: center;
-        color: black;
-      }
-    }
+  &:hover .grid-item-name, &:hover .grid-item-name-wrapper{
+    display: none;
   }
+
+  &:nth-child(5n+0){
+    margin-right: 0;
+  }
+}
+
+.grid-item-name-wrapper {
+  @include center-all;
+  background: rgba(0,0,0,0.50);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+form {
+  border: $border-size $border-style $main-color;
+  height: 100%;
+}
+
+.add-grid-item {
+  background-color: transparent;
+  border: 0;
+  display: block;
+  font-size: 72px;
+  height: 100%;
+  width: 100%;
 }
