@@ -11,5 +11,9 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.before do
+    allow(Keen).to receive(:publish)
+  end
+
   config.order = :random
 end

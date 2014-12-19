@@ -1,4 +1,8 @@
+require 'cucumber/rspec/doubles'
+
 Before('@omniauth_test') do
+  allow(Keen).to receive(:publish)
+
   OmniAuth.config.test_mode = true
 
   OmniAuth.config.mock_auth[:twitter] = {

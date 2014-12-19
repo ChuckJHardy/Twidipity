@@ -6,6 +6,8 @@ variable :WEB_CONCURRENCY, :integer, default: 3
 
 # Tracking
 variable :NEWRELIC_LICENSE_KEY, :string
+variable :KEEN_PROJECT_ID, :string
+variable :KEEN_WRITE_KEY, :string
 
 # API's
 variable :TWITTER_APP_KEY, :string

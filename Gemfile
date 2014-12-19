@@ -31,6 +31,7 @@ gem 'twitter', '~> 5.13'
 
 # Tools
 gem 'newrelic_rpm', '~> 3.9.6'
+gem 'keen', '~> 0.8'
 
 group :development do
   gem 'foreman'

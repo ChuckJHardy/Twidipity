@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   def create
+    log
+
     session[:user_id] = user.id
     redirect_to existing? ? statement_path(statement) : root_path
   end
@@ -37,5 +39,11 @@ class SessionsController < ApplicationController
 
   def auth
     @auth ||= request.env['omniauth.auth']
+  end
+
+  def log
+    { name: user.name, location: user.location }.tap do |options|
+      Keen.publish(:new_session, options)
+    end
   end
 end

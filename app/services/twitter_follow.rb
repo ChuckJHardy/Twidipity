@@ -12,10 +12,7 @@ class TwitterFollow
   end
 
   def call
-    followed_users.map do |user|
-      break if done?
-      @suggestions << Suggestion.find_by(tuid: user.id)
-    end
+    followed_users.map { |user| done? ? break : add(user.id) }
   rescue Twitter::Error::NotFound
     call unless done?
   rescue Twitter::Error => e
@@ -25,6 +22,13 @@ class TwitterFollow
   end
 
   private
+
+  def add(tuid)
+    Suggestion.find_by(tuid: tuid).tap do |suggestion|
+      record_follow(suggestion)
+      @suggestions << suggestion
+    end
+  end
 
   def update_statement!
     if @suggestions.any?
@@ -58,5 +62,15 @@ class TwitterFollow
 
   def statement
     @statement ||= Statement.find(@statement_id)
+  end
+
+  def record_follow(suggestion)
+    options = {
+      tuid: suggestion.tuid,
+      screen_name: suggestion.screen_name,
+      slug: suggestion.slug
+    }
+
+    Keen.publish(:follow, options)
   end
 end

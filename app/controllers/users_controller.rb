@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def destroy
-    unfollow && user.delete
+    unfollow && user.delete && log
     redirect_to logout_path
   end
 
@@ -14,6 +14,12 @@ class UsersController < ApplicationController
   end
 
   def user
-    User.find(params[:id])
+    @user ||= User.find(params[:id])
+  end
+
+  def log
+    { name: user.name, location: user.location }.tap do |options|
+      Keen.publish(:destory_user, options)
+    end
   end
 end
