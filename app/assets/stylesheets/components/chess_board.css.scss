@@ -1,6 +1,12 @@
 .grid-container {
   margin: 0 auto;
   width: 1080px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 .grid-item {
@@ -17,6 +23,10 @@
   &:nth-child(5n+0){
     margin-right: 0;
   }
+
+  img {
+    border-radius: $border-radius;
+  }
 }
 
 .grid-item-name-wrapper {
@@ -25,20 +35,20 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  top: 0;
+  bottom: 0;
   left: 0;
   text-align: center;
 }
 
 form {
   border: $border-size $border-style $main-color;
+  border-radius: $border-radius;
   height: 100%;
 }
 
 .add-grid-item {
   background-color: transparent;
   border: 0;
-  display: block;
   font-size: 72px;
   height: 100%;
   width: 100%;
