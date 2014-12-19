@@ -1,4 +1,4 @@
-module TwitterError; end
+require_relative 'twitter_error/too_many_requests'
 
 class TwitterErrorFactory
   def initialize(exception:)
@@ -12,7 +12,7 @@ class TwitterErrorFactory
   def build
     TwitterError.const_get(error).message(exception: exception)
   rescue NameError
-    exception
+    exception.to_s
   end
 
   protected
