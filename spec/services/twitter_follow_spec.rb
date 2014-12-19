@@ -6,7 +6,7 @@ describe TwitterFollow do
   end
 
   let(:quantity) { 2 }
-  let(:client) { double('TwitterClient') }
+  let(:client) { instance_double('Twitter::Client') }
 
   let!(:suggestion) { create(:suggestion) }
   let!(:statement) { create(:statement) }
@@ -20,27 +20,33 @@ describe TwitterFollow do
       .with(user_id: statement.user.id) { client }
   end
 
-  it 'assigns suggestions to statement' do
-    expect(client).to receive(:follow).with([suggestion.tuid])
-      .and_raise(Twitter::Error::NotFound)
-      .and_return([twitter_user])
+  context 'when users to follow' do
+    before do
+      expect(TwitterUsersToFollow).to receive(:call)
+        .with(client: client, quantity: quantity)
+        .and_raise(Twitter::Error::NotFound)
+        .and_return([twitter_user])
 
-    twitter
-    expect(statement.reload.suggestions).to eq([suggestion])
-  end
+      twitter
+    end
 
-  it 'sets ending at date' do
-    allow(client).to receive(:follow) { [twitter_user] }
+    it 'assigns suggestions to statement' do
+      expect(statement.reload.suggestions).to eq([suggestion])
+    end
 
-    twitter
-    expect(statement.reload.ending_at).to be > DateTime.now
+    it 'sets ending at date for statement' do
+      expect(statement.reload.ending_at).to be > DateTime.now
+    end
   end
 
   context 'when done or no results' do
     let(:quantity) { 0 }
 
     before do
-      allow(client).to receive(:follow) { [twitter_user] }
+      expect(TwitterUsersToFollow).to receive(:call)
+        .with(client: client, quantity: quantity)
+        .and_return([twitter_user])
+
       twitter
     end
 

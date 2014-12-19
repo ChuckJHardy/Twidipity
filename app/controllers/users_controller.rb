@@ -18,8 +18,6 @@ class UsersController < ApplicationController
   end
 
   def log
-    { name: user.name, location: user.location }.tap do |options|
-      Keen.publish(:destory_user, options)
-    end
+    Keener.new.user(user).destroy
   end
 end

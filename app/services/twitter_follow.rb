@@ -12,7 +12,7 @@ class TwitterFollow
   end
 
   def call
-    followed_users.map { |user| done? ? break : add(user.id) }
+    users.each(&follow)
   rescue Twitter::Error::NotFound
     call unless done?
   rescue Twitter::Error => e
@@ -23,37 +23,33 @@ class TwitterFollow
 
   private
 
-  def add(tuid)
-    Suggestion.find_by(tuid: tuid).tap do |suggestion|
-      record_follow(suggestion)
-      @suggestions << suggestion
-    end
-  end
-
   def update_statement!
-    if @suggestions.any?
-      statement.update_attributes!(
-        ending_at: ending_at, suggestions: @suggestions
-      )
-    else
-      statement.inactive!
-    end
+    @suggestions.any? ? save : statement.inactive!
   end
 
-  def ending_at
-    statement.duration.seconds.since
-  end
-
-  def followed_users
-    client.follow(tuids)
+  def save
+    statement.update_attributes!(
+      ending_at: statement.duration.seconds.since, suggestions: @suggestions
+    )
   end
 
   def done?
     @suggestions.size == @quantity
   end
 
-  def tuids
-    @tuids ||= Suggestion.random(@quantity).map(&:tuid)
+  def follow
+    ->(user) { done? ? break : add(user) }
+  end
+
+  def add(user)
+    Suggestion.find_by(tuid: user.id).tap do |suggestion|
+      Keener.new.follow(suggestion: suggestion)
+      @suggestions << suggestion
+    end
+  end
+
+  def users
+    TwitterUsersToFollow.call(client: client, quantity: @quantity)
   end
 
   def client
@@ -62,15 +58,5 @@ class TwitterFollow
 
   def statement
     @statement ||= Statement.find(@statement_id)
-  end
-
-  def record_follow(suggestion)
-    options = {
-      tuid: suggestion.tuid,
-      screen_name: suggestion.screen_name,
-      slug: suggestion.slug
-    }
-
-    Keen.publish(:follow, options)
   end
 end
