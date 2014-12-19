@@ -18,7 +18,7 @@ $background-color: #1F1C17;
 $border-color: #3D3A35;
 
 // Border, spacing, and widths
-$border-size: 1px;
+$border-size: 2px;
 $border-style: solid;
 $border-radius: 3px;
 
@@ -32,4 +32,16 @@ $border-radius: 3px;
 	align-items: center;
 	-webkit-justify-content: center;
 	justify-content: center;
+}
+
+@mixin full-width-height {
+	height: 100%;
+	width: 100%;
+}
+
+@mixin bg-color-animation {
+	-webkit-transition: background-color 300ms ease-out;
+	   -moz-transition: background-color 300ms ease-out;
+	     -o-transition: background-color 300ms ease-out;
+	        transition: background-color 300ms ease-out;
 }

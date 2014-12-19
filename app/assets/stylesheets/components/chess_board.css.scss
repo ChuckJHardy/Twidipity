@@ -16,40 +16,44 @@
   margin: 0 20px 20px 0;
   position: relative;
 
-  &:hover .grid-item-name, &:hover .grid-item-name-wrapper{
-    display: none;
-  }
-
   &:nth-child(5n+0){
     margin-right: 0;
   }
+}
 
-  img {
-    border-radius: $border-radius;
-  }
+.grid-item-img {
+  border-radius: $border-radius;
 }
 
 .grid-item-name-wrapper {
   @include center-all;
-  background: rgba(0,0,0,0.50);
+  @include full-width-height;
+  @include bg-color-animation;
+  background-color: rgba(0,0,0,0.50);
   position: absolute;
-  height: 100%;
-  width: 100%;
   bottom: 0;
   left: 0;
   text-align: center;
+
+  &:hover {
+    background-color: rgba(0,0,0,0);
+  }
 }
 
 form {
-  border: $border-size $border-style $main-color;
+  border: $border-size $border-style $link-color;
   border-radius: $border-radius;
   height: 100%;
 }
 
 .add-grid-item {
+  @include full-width-height;
+  @include bg-color-animation;
   background-color: transparent;
   border: 0;
   font-size: 72px;
-  height: 100%;
-  width: 100%;
+
+  &:hover {
+    background-color: $link-color;
+  }
 }

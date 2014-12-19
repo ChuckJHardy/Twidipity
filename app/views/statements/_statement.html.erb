@@ -1,6 +1,6 @@
 <% statement.suggestions.map(&SuggestionDecorator).each do |suggestion| %>
   <div class="grid-item">
-    <%= link_to(image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name), suggestion.uri, target: :blank) %>
+    <%= link_to(image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name, :class => "grid-item-img"), suggestion.uri, target: :blank) %>
     <div class="grid-item-name-wrapper">
     	<div class="grid-item-name">
     		@<%= suggestion.screen_name %>
