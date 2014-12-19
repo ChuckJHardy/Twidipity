@@ -12,7 +12,7 @@ class TwitterFollow
   end
 
   def call
-    users.each(&follow)
+    client.follow(users.each(&find))
   rescue Twitter::Error::NotFound
     call unless done?
   rescue Twitter::Error => e
@@ -37,7 +37,7 @@ class TwitterFollow
     @suggestions.size == @quantity
   end
 
-  def follow
+  def find
     ->(user) { done? ? break : add(user) }
   end
 

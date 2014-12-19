@@ -6,7 +6,7 @@ describe TwitterFollow do
   end
 
   let(:quantity) { 2 }
-  let(:client) { instance_double('Twitter::Client') }
+  let(:client) { instance_double('Twitter::REST::Client') }
 
   let!(:suggestion) { create(:suggestion) }
   let!(:statement) { create(:statement) }
@@ -18,6 +18,8 @@ describe TwitterFollow do
   before do
     allow(TwitterClient).to receive(:call)
       .with(user_id: statement.user.id) { client }
+
+    expect(client).to receive(:follow).with([twitter_user])
   end
 
   context 'when users to follow' do

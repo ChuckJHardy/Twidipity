@@ -9,7 +9,7 @@ describe TwitterErrorFactory do
   let(:exception) { instance_double('Twitter::Error::TooManyRequests') }
 
   it 'returns message from error class' do
-    expect(factory).to eq(exception)
+    expect(factory).to eq(exception.to_s)
   end
 
   context 'when custom error object exists' do
