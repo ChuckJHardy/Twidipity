@@ -8,7 +8,7 @@
 <% content_for(:nav) { render partial: 'nav' } %>
 
 <h2 class='statement'>
-  <%= link_to 'Unfollow', statement_path, method: :delete %>
+  <%= link_to 'Refresh | ', statement_path(@statement) if @statement.suggestions.none? %><%= link_to 'Unfollow', statement_path, method: :delete %>
 </h2>
 
 <ul class='suggestions'>
