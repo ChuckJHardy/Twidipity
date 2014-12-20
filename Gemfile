@@ -8,7 +8,7 @@ gem 'pg', '~> 0.17'
 gem 'unicorn', '~> 4.8'
 gem 'envied', '~> 0.8'
 gem 'sidekiq', '~> 3.2'
-gem "clockwork", "~> 0.7", require: false
+gem 'whenever', '~> 0.9', require: false
 
 # Assets
 gem 'sass-rails', '~> 4.0'
@@ -40,6 +40,8 @@ group :development do
 
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-sidekiq'
 end
 
 group :development, :test do
@@ -60,5 +62,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'daemons', '~> 1.1.9'
 end

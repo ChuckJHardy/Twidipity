@@ -23,3 +23,7 @@ set :ssh_options, {
 
 set :rails_env, :production
 set :conditionally_migrate, true
+
+# capistrano-sidekiq
+set :sidekiq_default_hooks, false
+set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq', 'production.yml') }
