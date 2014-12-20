@@ -24,6 +24,6 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 set :path, Rails.root
 set :output, Rails.root.join('log', 'cron.log')
 
-every :hour do
+every 16.minutes do
   runner "FollowWorker::Scheduled.perform"
 end
