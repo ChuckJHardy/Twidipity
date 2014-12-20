@@ -10,3 +10,6 @@ AllCops:
     - 'features/support/env.rb'
 Documentation:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 90

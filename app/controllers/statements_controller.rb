@@ -2,8 +2,8 @@ class StatementsController < ApplicationController
   before_action :find_statement, only: [:show, :destroy]
 
   def show
-    return true unless @statement.error?
-    redirect_to new_statement_path, notice: 'Twitter Said No'
+    redirect_to new_statement_path, notice: 'Twitter Said No' if @statement.error?
+    redirect_to root_path if @statement.inactive!
   end
 
   def new
