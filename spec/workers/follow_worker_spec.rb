@@ -6,7 +6,7 @@ RSpec.describe FollowWorker, type: :worker do
     described_class.perform_async(statement.id, statement.follow)
   end
 
-  let!(:statement) { create(:statement_with_suggestions) }
+  let!(:statement) { create(:statement_with_suggestion) }
 
   before { Sidekiq::Testing.inline! }
 
@@ -22,7 +22,7 @@ RSpec.describe FollowWorker::Scheduled, type: :worker do
   subject(:worker) { described_class.perform }
 
   let!(:statement) do
-    create(:statement_with_suggestions, suggestions_ending_at: ending_at)
+    create(:statement_with_suggestion, suggestion_ending_at: ending_at)
   end
 
   let(:ending_at) { DateTime.now - 3.days }
@@ -34,9 +34,9 @@ RSpec.describe FollowWorker::Scheduled, type: :worker do
     expect(UnfollowWorker).to receive(:perform_async).with(statement.id)
   end
 
-  it 'sets current statement to inactive' do
+  it 'sets current statement to complete' do
     worker
-    expect(Statement.first.status).to eq('inactive')
+    expect(Statement.first.status).to eq('complete')
   end
 
   it 'creates a new statement' do

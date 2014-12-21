@@ -1,0 +1,18 @@
+<% content_for(:title) { 'Twidipity | Following' } %>
+<% content_for(:nav) { render partial: 'nav' } %>
+
+<% content_for(:active) do %>
+  <div class="grid-item">
+    <%= form_for @new_statement do |f| %>
+      <%= f.hidden_field :follow, value: 1 %>
+      <%= f.hidden_field :duration, value: 86400 %>
+      <%= f.submit (flash[:notice] || '+'), class: "add-grid-item" %>
+    <% end %>
+  </div>
+
+  <%= render partial: "statement", collection: @active %>
+<% end %>
+
+<% content_for(:complete) do %>
+  <%= render partial: "suggestion", collection: @complete %>
+<% end %>

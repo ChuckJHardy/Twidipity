@@ -1,0 +1,63 @@
+.grid-container {
+  margin: 0 auto;
+  width: 1080px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.grid-item {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 0 20px 20px 0;
+  position: relative;
+
+  &:nth-child(5n+0){
+    margin-right: 0;
+  }
+}
+
+.grid-item-link {
+  display: block;
+}
+
+.grid-item-img {
+  border-radius: $border-radius;
+}
+
+.grid-item-name-wrapper {
+  @include center-all;
+  @include full-width-height;
+  @include bg-color-animation;
+  background-color: rgba(0,0,0,0.50);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+
+  &:hover {
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+form {
+  border: $border-size $border-style $link-color;
+  border-radius: $border-radius;
+  height: 100%;
+}
+
+.add-grid-item {
+  @include full-width-height;
+  @include bg-color-animation;
+  background-color: transparent;
+  border: 0;
+  font-size: 72px;
+
+  &:hover {
+    background-color: $link-color;
+  }
+}

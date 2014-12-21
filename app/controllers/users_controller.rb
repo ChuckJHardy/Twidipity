@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def unfollow
     user.statements.active.each do |statement|
-      statement.inactive!
+      statement.complete!
       UnfollowWorker.perform_async statement.id
     end
   end
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def log
-    Keener.new.user(user).destroy
+    KeenAdapter.new.user(user).destroy
   end
 end

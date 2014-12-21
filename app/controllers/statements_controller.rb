@@ -1,37 +1,38 @@
 class StatementsController < ApplicationController
-  before_action :find_statement, only: [:show, :destroy]
+  before_action :find_statement, only: [:destroy]
 
-  def show
-    redirect_to new_statement_path, notice: 'Twitter Said No' if @statement.error?
-    redirect_to root_path if @statement.inactive!
+  def index
+    @active = user.statements.active.map(&StatementDecorator)
+    @complete = complete.uniq.map(&SuggestionDecorator)
+    @new_statement = Statement.new
   end
 
-  def new
-    user.statements.last.tap do |statement|
-      redirect_to statement_path(statement) if statement.try(:active?)
-    end
-
-    @statement = Statement.new
-  end
+  def new; end
 
   def create
-    statement = Statement.new statement_params
+    statement = Statement.new(statement_params)
 
-    if statement.active!
-      FollowWorker.perform_async statement.id, statement_params[:follow]
-      redirect_to statement
-    else
-      render :new
+    if statement.save
+      FollowWorker.perform_async(statement.id, statement_params[:follow])
     end
+
+    redirect_to root_path
   end
 
   def destroy
-    @statement.inactive!
-    UnfollowWorker.perform_async @statement.id
+    user.statements.find(params[:id]).tap do |statement|
+      statement.complete!
+      UnfollowWorker.perform_async statement.id
+    end
+
     redirect_to root_path
   end
 
   private
+
+  def complete
+    user.statements.complete.map(&:suggestion)
+  end
 
   def find_statement
     @statement = user.statements.find params[:id]

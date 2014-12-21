@@ -1,8 +1,8 @@
 class Statement < ActiveRecord::Base
-  enum status: [:inactive, :active]
+  enum status: [:inactive, :active, :complete]
 
   belongs_to :user
-  has_and_belongs_to_many :suggestions, dependent: :destroy
+  belongs_to :suggestion
 
   scope :ended, ->(date = DateTime.now) { where('ending_at < ?', date) }
 end

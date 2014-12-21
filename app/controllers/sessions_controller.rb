@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   def create
-    Keener.new.user(user).create
+    KeenAdapter.new.user(user).create
 
     session[:user_id] = user.id
-    redirect_to existing? ? statement_path(statement) : root_path
+    redirect_to root_path
   end
 
   def failure
@@ -16,14 +16,6 @@ class SessionsController < ApplicationController
   end
 
   private
-
-  def existing?
-    statement.try(:active?)
-  end
-
-  def statement
-    @statement ||= user.statements.last
-  end
 
   def user
     @user ||= find_user || create_user

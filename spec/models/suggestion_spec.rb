@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Suggestion, type: :model do
-  it { should have_and_belong_to_many(:statements).dependent(:destroy) }
+  it { should have_many(:statements).dependent(:destroy) }
 
   describe '.random' do
     subject(:scope) { described_class.random(2) }

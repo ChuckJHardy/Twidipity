@@ -3,7 +3,7 @@ require 'rails_helper'
 describe TwitterUnfollow do
   subject(:twitter) { described_class.call(statement_id: statement.id) }
 
-  let!(:statement) { create(:statement_with_suggestions) }
+  let!(:statement) { create(:statement_with_suggestion) }
   let(:client) { Twitter::REST::Client.new }
 
   before do
@@ -13,7 +13,7 @@ describe TwitterUnfollow do
 
   it 'unfollows expected follows' do
     expect(client).to receive(:unfollow)
-      .with(statement.suggestions.map(&:tuid))
+      .with(statement.suggestion.tuid)
 
     twitter
   end

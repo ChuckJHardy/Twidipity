@@ -29,7 +29,7 @@ class FollowWorker
     end
 
     def destroy(statement)
-      statement.inactive!
+      statement.complete!
       UnfollowWorker.perform_async(statement.id)
     end
 

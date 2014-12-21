@@ -1,4 +1,4 @@
-require './lib/beta_user_contraint'
+require './lib/user_contraint'
 
 Rails.application.routes.draw do
   resources :invite, only: [:index]
@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/',
-    to: 'statements#new',
-    constraints: BetaUserConstraint,
-    as: :new_statement_root
+    to: 'statements#index',
+    constraints: UserConstraint,
+    as: :statement_root
 
-  root to: 'invite#index'
+  root to: 'statements#new'
 end

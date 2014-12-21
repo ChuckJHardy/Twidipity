@@ -2,12 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Statement, type: :model do
   it { should belong_to(:user) }
-  it { should have_and_belong_to_many(:suggestions).dependent(:destroy) }
+  it { should belong_to(:suggestion) }
 
   describe '.status' do
     subject { described_class.statuses }
 
-    let(:expected_statuses) { { 'inactive' => 0, 'active' => 1 } }
+    let(:expected_statuses) do
+      { 'inactive' => 0, 'active' => 1, 'complete' => 2 }
+    end
 
     it 'returns emum hash' do
       expect(subject).to eq(expected_statuses)
@@ -18,7 +20,7 @@ RSpec.describe Statement, type: :model do
     subject(:scope) { described_class.ended(date) }
 
     let!(:statement) do
-      create(:statement_with_suggestions, suggestions_ending_at: ending_at)
+      create(:statement_with_suggestion, suggestion_ending_at: ending_at)
     end
 
     let!(:ending_at) { DateTime.now + 2.days }

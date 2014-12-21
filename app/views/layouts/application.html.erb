@@ -17,13 +17,19 @@
     </div>
   <% end %>
 
-  <%= yield :nav %>
+  <content class='container'>
+    <%= yield %>
 
-  <div class='flexcontainer'>
-    <content class='container'>
-      <%= yield %>
-    </contect>
-  </div>
+    <div class="grid-container">
+      <%= yield :active %>
+    </div>
+
+    <div class="grid-container">
+      <%= yield :complete %>
+    </div>
+
+    <%= yield :nav %>
+  </content>
 
   <% if Rails.env.production? %>
     <script>

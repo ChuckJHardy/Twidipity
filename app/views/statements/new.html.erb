@@ -1,22 +1,7 @@
-<% content_for(:title) { 'Twidipity | Follow' } %>
-<% content_for(:nav) { render partial: 'nav' } %>
-
-<%= form_for @statement do |f| %>
-  <%= f.hidden_field :follow, value: 4 %>
-  <%= f.hidden_field :duration, value: 900 %>
-
-  <h2 class='statement'>
-    <% if flash[:notice] %>
-      <a href"#"><%= flash[:notice] %></a>
-    <% else %>
-      <%= f.submit 'Follow' %>
+<div class="grid-container">
+  <div class="grid-item">
+    <%= form_tag '/auth/twitter' do %>
+      <%= submit_tag '+', class: "add-grid-item" %>
     <% end %>
-  </h2>
-
-  <ul class='suggestions'>
-    <li><div class='circle'></div></li>
-    <li><div class='circle'></div></li>
-    <li><div class='circle'></div></li>
-    <li><div class='circle'></div></li>
-  </ul>
-<% end %>
+  </div>
+</div>

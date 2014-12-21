@@ -19,21 +19,25 @@ describe TwitterFollow do
     allow(TwitterClient).to receive(:call)
       .with(user_id: statement.user.id) { client }
 
-    expect(client).to receive(:follow).with([twitter_user])
+    expect(TwitterUsersToFollow).to receive(:call)
+      .with(client: client, quantity: quantity)
+      .and_return([twitter_user])
   end
 
   context 'when users to follow' do
     before do
-      expect(TwitterUsersToFollow).to receive(:call)
-        .with(client: client, quantity: quantity)
-        .and_raise(Twitter::Error::NotFound)
-        .and_return([twitter_user])
+      expect(client).to receive(:follow)
+        .with([twitter_user]) { true }
 
       twitter
     end
 
     it 'assigns suggestions to statement' do
-      expect(statement.reload.suggestions).to eq([suggestion])
+      expect(statement.reload.suggestion).to eq(suggestion)
+    end
+
+    it 'sets statement to active' do
+      expect(statement.reload.status).to eq('active')
     end
 
     it 'sets ending at date for statement' do
@@ -41,19 +45,29 @@ describe TwitterFollow do
     end
   end
 
+  context 'when error' do
+    it 'updates statement with error' do
+      allow(client).to receive(:follow)
+        .and_raise(Twitter::Error)
+
+      twitter
+
+      expect(statement.reload.error).to eq('')
+    end
+  end
+
   context 'when done or no results' do
     let(:quantity) { 0 }
 
     before do
-      expect(TwitterUsersToFollow).to receive(:call)
-        .with(client: client, quantity: quantity)
-        .and_return([twitter_user])
+      expect(client).to receive(:follow)
+        .with([twitter_user]) { true }
 
       twitter
     end
 
     it 'does not assign more than requested' do
-      expect(statement.suggestions).to eq([])
+      expect(statement.suggestion).to be_nil
     end
 
     it 'sets statement to inactive' do

@@ -1,5 +1,5 @@
 class TwitterUsersToFollow
-  def initialize(client:, quantity: 1)
+  def initialize(client:, quantity:)
     @client = client
     @quantity = quantity
   end

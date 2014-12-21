@@ -7,6 +7,7 @@ class CreateSuggestions < ActiveRecord::Migration
       t.string :screen_name
       t.string :profile_image_uri
       t.string :uri
+      t.text   :description
 
       t.timestamps
     end

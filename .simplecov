@@ -1,5 +1,5 @@
 SimpleCov.configure do
-  minimum_coverage 80
+  minimum_coverage 98
 
   start('rails') do
     formatter SimpleCov::Formatter::MultiFormatter[

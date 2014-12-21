@@ -11,25 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208192117) do
+ActiveRecord::Schema.define(version: 20141208192044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "statements", force: true do |t|
     t.integer  "user_id"
-    t.integer  "follow",                 null: false
-    t.integer  "duration",   default: 0
-    t.integer  "status",     default: 0
+    t.integer  "suggestion_id"
+    t.integer  "follow",                    null: false
+    t.integer  "duration",      default: 0
+    t.integer  "status",        default: 0
     t.datetime "ending_at"
     t.string   "error"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "statements_suggestions", force: true do |t|
-    t.integer  "statement_id"
-    t.integer  "suggestion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141208192117) do
     t.string   "screen_name"
     t.string   "profile_image_uri"
     t.string   "uri"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
