@@ -2,7 +2,14 @@
 <html lang='en'>
 <head>
   <title><%= content_for?(:title) ? yield(:title) : 'Twidipity' %></title>
+
+  <meta name="description" content="Discover Twitter by following random people for 24 hours.">
+  <meta name="keywords" content="Twitter,Random,Discovery,Discover,Serendipity">
+  <meta name="author" content="Insert Coffee">
+  <meta name="robots" content="index, nofollow">
+  <meta name="revisit-after" content="5 days">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
