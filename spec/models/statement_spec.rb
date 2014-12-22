@@ -8,7 +8,12 @@ RSpec.describe Statement, type: :model do
     subject { described_class.statuses }
 
     let(:expected_statuses) do
-      { 'inactive' => 0, 'active' => 1, 'complete' => 2 }
+      {
+        'inactive' => 0,
+        'processing' => 1,
+        'active' => 2,
+        'complete' => 3
+      }
     end
 
     it 'returns emum hash' do

@@ -1,5 +1,5 @@
 class Statement < ActiveRecord::Base
-  enum status: [:inactive, :active, :complete]
+  enum status: [:inactive, :processing, :active, :complete]
 
   belongs_to :user
   belongs_to :suggestion

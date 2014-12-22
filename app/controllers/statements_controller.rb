@@ -3,6 +3,7 @@ class StatementsController < ApplicationController
 
   def index
     @active = user.statements.active.map(&StatementDecorator)
+    @processing = user.statements.processing
     @complete = complete.uniq.map(&SuggestionDecorator)
     @new_statement = Statement.new
   end
@@ -12,7 +13,7 @@ class StatementsController < ApplicationController
   def create
     statement = Statement.new(statement_params)
 
-    if statement.save
+    if statement.processing!
       FollowWorker.perform_async(statement.id, statement_params[:follow])
     end
 
