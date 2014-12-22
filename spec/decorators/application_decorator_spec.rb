@@ -20,4 +20,3 @@ RSpec.describe ApplicationDecorator, type: :decorator do
     end
   end
 end
-

@@ -3,7 +3,9 @@
   <div class="grid-item-name-wrapper">
     <div class="grid-item-name">
       @<%= suggestion.screen_name %>
+
       <% if defined?(statement) %>
+        <%= distance_of_time_in_words_to_now(statement.ending_at) %>
         <%= link_to 'delete', statement_path(statement), method: :delete %>
       <% end %>
     </div>

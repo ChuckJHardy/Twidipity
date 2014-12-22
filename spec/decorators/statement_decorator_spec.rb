@@ -19,4 +19,3 @@ RSpec.describe StatementDecorator, type: :decorator do
     end
   end
 end
-
