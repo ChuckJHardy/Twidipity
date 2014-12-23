@@ -7,10 +7,7 @@ RSpec.describe SuggestionDecorator, type: :decorator do
     subject(:decorator) { described_class.decorate(object) }
 
     let(:object) do
-      instance_double(
-        'Suggestion',
-        profile_image_uri: profile_image_uri
-      )
+      double('Suggestion', profile_image_uri: profile_image_uri)
     end
 
     let(:profile_image_uri) { 'http://twitter.com/image_normal.png' }

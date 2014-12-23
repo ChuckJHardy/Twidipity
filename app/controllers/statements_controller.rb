@@ -4,11 +4,12 @@ class StatementsController < ApplicationController
   def index
     @active = user.statements.active.map(&StatementDecorator)
     @processing = user.statements.processing
-    @complete = complete.uniq.map(&SuggestionDecorator)
     @new_statement = Statement.new
   end
 
-  def new; end
+  def history
+    @complete = complete.uniq.map(&SuggestionDecorator)
+  end
 
   def create
     statement = Statement.new(statement_params)

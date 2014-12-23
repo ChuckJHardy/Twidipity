@@ -24,6 +24,10 @@
     </div>
   <% end %>
 
+  <header>
+    <%= yield :header %>
+  </header>
+
   <content class='container'>
     <%= yield %>
 
@@ -35,8 +39,11 @@
       <%= yield :complete %>
     </div>
 
-    <%= yield :nav %>
   </content>
+
+  <footer>
+    <%= render partial: "shared/footer" %>
+  </footer>
 
   <% if Rails.env.production? %>
     <script>

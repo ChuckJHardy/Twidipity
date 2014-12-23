@@ -2,8 +2,10 @@ require './lib/user_contraint'
 
 Rails.application.routes.draw do
   resources :invite, only: [:index]
-  resources :statements
+  resources :statements, except: [:new]
   resources :users, only: [:destroy]
+
+  get '/history' => 'statements#history'
 
   get '/auth/twitter/callback' => 'sessions#create'
   get '/auth/failure' => 'sessions#failure'
