@@ -2,19 +2,20 @@
 $alert: #FF0000;
 
 // Typography
-$body-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$body-font-size: 14px;
+$mini-font-size: 12px;
+$header-font-size: 30px;
 
-$body-font-size: 13px;
-$header-font-size: 24px;
-$module-header-font-size: 18px;
-
-$font-weight-normal: 300;
+$body-line-height: 24px;
 
 // Colours
 $main-color: #ffffff;
 $accent-color: #69B9C7;
+
 $link-color: #D3A90A;
+
 $background-color: #1F1C17;
+
 $border-color: #3D3A35;
 
 // Border, spacing, and widths

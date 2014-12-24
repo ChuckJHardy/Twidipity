@@ -1,0 +1,45 @@
+//Typography
+
+@mixin font-normal {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+@mixin hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+//Animations
+
+@mixin bg-color-animation {
+  -webkit-transition: background-color 300ms ease-out;
+     -moz-transition: background-color 300ms ease-out;
+       -o-transition: background-color 300ms ease-out;
+          transition: background-color 300ms ease-out;
+}
+
+//Layout
+
+@mixin clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@mixin full-width-height {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin center-all {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row; /* works with row or column */
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}

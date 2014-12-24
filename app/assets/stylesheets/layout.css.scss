@@ -1,9 +1,52 @@
+* {
+	box-sizing: border-box;
+}
+
 html, body {
   height: 100%
 }
 
 body {
+  @include font-normal;
   background-color: $background-color;
   color: $main-color;
-  margin-top: 60px;
+}
+
+.container {
+  @include clearfix;
+  display: block;
+  margin: 0 auto;
+  width: 1080px;
+}
+
+.column-1, .column-2 {
+	float: left;
+	width: 50%;
+}
+
+.column-1 {
+	padding-right: 35px;
+}
+
+.column-2 {
+	padding-left: 15px;
+}
+
+// Sections
+
+.section-1 {
+  margin: 90px 0 110px 0;
+	text-align: center;
+}
+
+.section-1-intro-text {
+  font-size: 36px;
+  line-height: 50px;
+  margin: 0 auto 50px auto;
+  max-width: 800px;
+}
+
+.section-2 {
+	@include clearfix;
+  margin: 100px 0;
 }

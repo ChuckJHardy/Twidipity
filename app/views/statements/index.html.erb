@@ -2,22 +2,25 @@
 <% content_for(:header) { render partial: 'header' } %>
 
 <% content_for(:active) do %>
-  <h1>Find more People</h1>
+  <div class="section-2">
+    <div class="column-1">
+      <h2>Find more people</h2>
 
-  <p>You will follow each person for 24 hours. Afterwards, we will unfollow them for you. If you're impatient, you can always remove them from the list manually.</p>
-  <p>If you like what they Tweeted, but we unfollowed them, you can always <%= link_to('visit your history', history_path) %> and follow them again.</p>
-  <p>Remember, only 4 at a time.</p>
+      <p>You will follow each person for 24 hours. Afterwards, we will unfollow them for you. If you're impatient, you can always remove them from the list manually.</p>
+      <p>If you like what they Tweeted, but we unfollowed them, you can always <%= link_to('visit your history', history_path) %> and follow them again.</p>
+      <p>You can only follow 4 people at a time because we want to be nice to our servers.</p>
 
-  <%= form_for @new_statement do |f| %>
-    <%= f.hidden_field :follow, value: 1 %>
-    <%= f.hidden_field :duration, value: 86400 %>
-    <%= f.submit 'Find another random person' %>
-  <% end %>
-
-  <hr />
-
-  <%= render partial: "statement", collection: @active %>
-  <%= render partial: "processing", collection: @processing %>
+      <%= form_for @new_statement do |f| %>
+        <%= f.hidden_field :follow, value: 1 %>
+        <%= f.hidden_field :duration, value: 86400 %>
+        <%= f.submit 'Find another random person', :class => "btn" %>
+      <% end %>
+    </div>
+    <div class="column-2">
+      <%= render partial: "statement", collection: @active %>
+      <%= render partial: "processing", collection: @processing %>
+    </div>
+  </div>  
 <% end %>
 
 <% content_for(:complete) do %>

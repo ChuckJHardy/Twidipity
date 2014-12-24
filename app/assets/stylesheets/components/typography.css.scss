@@ -1,0 +1,15 @@
+body {
+	line-height: $body-line-height;
+}
+
+a, a:hover, a:active, a:visited {
+	color: $link-color;
+}
+
+h2 {
+	color: $accent-color;
+	font: {
+		weight: normal;
+		size: $header-font-size;
+	}
+}

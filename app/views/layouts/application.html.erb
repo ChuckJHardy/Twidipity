@@ -24,26 +24,25 @@
     </div>
   <% end %>
 
-  <header>
-    <%= yield :header %>
-  </header>
-
   <content class='container'>
+    <%= yield :header %>
+
+    <div class="page-divider"></div>
+
     <%= yield %>
 
-    <div class="grid-container">
-      <%= yield :active %>
-    </div>
+    <%= yield :active %>
 
-    <div class="grid-container">
-      <%= yield :complete %>
-    </div>
-
+    <%= yield :complete %>
+    
+    <div class="page-divider"></div>
+    
+    <footer>
+      <%= render partial: "shared/footer" %>
+    </footer>
   </content>
 
-  <footer>
-    <%= render partial: "shared/footer" %>
-  </footer>
+  
 
   <% if Rails.env.production? %>
     <script>

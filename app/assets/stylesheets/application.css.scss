@@ -5,7 +5,6 @@
 
 @charset "UTF-8";
 
-@import "settings";
-@import "modules";
+@import "modules/all";
 @import "layout";
-@import "components";
+@import "components/all";

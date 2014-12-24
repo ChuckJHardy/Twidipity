@@ -1,12 +1,10 @@
-<ul>
+<ul class="footer-links">
   <li><a href="http://goo.gl/forms/SvqMq3h9SL" target="_blank">Feedback</a></li>
   <li><a href="http://goo.gl/forms/htXTjYioot" target="_blank">Feature Requests</a></li>
   <li><a href='https://twitter.com/intent/tweet?original_referer=<%= root_url %>&status=Join%20@Twidipity%20in%20the%20discovery%20of%20Twitter <%= root_url %>'>Share Twidipity</a></li>
 
   <% if session[:user_id] %>
-    <li class="divider"></li>
     <li><%= link_to 'Signout', logout_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to('Delete Account', user_path(id: session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' }) %></li>
+    <li class="pull-right"><%= link_to('Delete Account', user_path(id: session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' }) %></li>
   <% end %>
 </ul>
