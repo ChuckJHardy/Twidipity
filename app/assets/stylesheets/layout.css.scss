@@ -9,7 +9,7 @@ html, body {
 body {
   @include font-normal;
   background-color: $background-color;
-  color: $main-color;
+  color: $body-color;
 }
 
 .container {

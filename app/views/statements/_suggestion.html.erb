@@ -1,16 +1,19 @@
 <div class="grid-item">
-  <%= link_to(image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name, class: "grid-item-img"), suggestion.uri, target: :blank, class: "grid-item-link") %>
-  <div class="grid-item-name-wrapper">
-    <div class="grid-item-name">
-      @<%= suggestion.screen_name %>
+  <%= link_to(suggestion.uri, target: :blank, class: "grid-item-link") do %>
+    <%= image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name, class: "grid-item-img") %>
+    <div class="grid-item-name-wrapper">
+      <div class="grid-item-name">
+        @<%= suggestion.screen_name %>
+      </div>
+      <div class="grid-item-timer">
+        <% if defined?(statement) %>
+          <%= distance_of_time_in_words_to_now(statement.ending_at) %>
+        <% end %>
+      </div>
     </div>
-    <div class="grid-item-timer">
-      <% if defined?(statement) %>
-        <%= distance_of_time_in_words_to_now(statement.ending_at) %>
-      <% end %>
-    </div>
-    <% if defined?(statement) %>
-      <%= link_to 'delete', statement_path(statement), method: :delete, :class => 'grid-delete-link' %>
-    <% end %>
-  </div>
+  <% end %>
+
+  <% if defined?(statement) %>
+    <%= link_to 'delete', statement_path(statement), method: :delete, :class => 'grid-delete-link' %>
+  <% end %>
 </div>

@@ -1,20 +1,20 @@
 .footer-links {
 	@include clearfix;
 	list-style-type: none;
-	margin: 25px 0 0 0;
+	margin: 25px 0;
 	padding: 0;
 	width: 100%;
 
 	li {
 		float: left;
-		margin-right: 20px;
+		margin-right: 25px;
 
 		&:last-child {
 			margin-right: 0;
 		}
 
 		a {
-			color: $link-color;
+			color: $body-color;
 			font-size: $mini-font-size;
 			text-decoration: none;
 		}
