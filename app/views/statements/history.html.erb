@@ -1,3 +1,12 @@
 <% content_for(:title) { 'Twidipity | History' } %>
 
-<%= render partial: "suggestion", collection: @complete %>
+<div class="page-header">
+	<a href="/"><h1 class="logo">Twidipity</h1></a>
+	<div class="page-divider"></div>
+</div>
+
+<h2>History</h2>
+
+<div class="history-grid">
+	<%= render partial: "suggestion", collection: @complete %>
+</div>

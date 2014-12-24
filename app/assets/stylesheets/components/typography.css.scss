@@ -2,15 +2,10 @@ body {
 	line-height: $body-line-height;
 }
 
-a, a:hover, a:active, a:visited {
-	color: $brand-color;
-}
-
 h2 {
 	color: $accent-color;
 	font: {
 		weight: normal;
 		size: $header-font-size;
 	}
-	margin-top: 0;
 }
