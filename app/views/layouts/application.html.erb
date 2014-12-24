@@ -27,15 +27,11 @@
   <content class='container'>
     <%= yield :header %>
 
-    <div class="page-divider"></div>
-
     <%= yield %>
 
     <%= yield :active %>
 
     <%= yield :complete %>
-    
-    <div class="page-divider"></div>
     
     <footer>
       <%= render partial: "shared/footer" %>
