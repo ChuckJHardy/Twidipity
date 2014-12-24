@@ -1,6 +1,6 @@
 .section-1 {
   margin: $spacing*4 0;
-	text-align: center;
+  text-align: center;
 
   .logo {
     margin-bottom: $spacing*2;
@@ -15,7 +15,7 @@
 }
 
 .section-2 {
-	@include clearfix;
+  @include clearfix;
   margin: $spacing*2 0;
 
   h2 {

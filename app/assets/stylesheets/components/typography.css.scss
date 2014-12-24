@@ -1,11 +1,11 @@
 body {
-	line-height: $body-line-height;
+  line-height: $body-line-height;
 }
 
 h2 {
-	color: $accent-color;
-	font: {
-		weight: normal;
-		size: $header-font-size;
-	}
+  color: $accent-color;
+  font: {
+    weight: normal;
+    size: $header-font-size;
+  }
 }
