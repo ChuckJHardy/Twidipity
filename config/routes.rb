@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     constraints: UserConstraint,
     as: :statement_root
 
-  root to: 'statements#new'
+  root to: 'statements#index'
 end

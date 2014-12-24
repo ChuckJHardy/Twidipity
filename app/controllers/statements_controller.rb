@@ -4,6 +4,10 @@ class StatementsController < ApplicationController
   def index
     @active = user.statements.active.map(&StatementDecorator)
     @processing = user.statements.processing
+  rescue
+    @active = []
+    @processing = []
+  ensure
     @new_statement = Statement.new
   end
 
