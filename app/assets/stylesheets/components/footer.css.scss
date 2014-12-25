@@ -21,6 +21,10 @@ footer:before {
     &:last-child {
       margin-right: 0;
     }
+
+    @media (max-width: 768px) {
+      float: none !important;
+    }
   }
 
   a {

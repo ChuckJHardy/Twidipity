@@ -24,6 +24,11 @@
   &:nth-child(5n+0) {
     margin-right: 0;
   }
+
+  @media (max-width: 768px) {
+    float: none;
+    margin: $spacing auto;
+  }
 }
 
 .grid-item-link {
