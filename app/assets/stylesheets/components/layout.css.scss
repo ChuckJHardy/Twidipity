@@ -38,22 +38,6 @@ a, a:hover, a:active, a:visited {
   }
 }
 
-.column-1 {
-  padding-right: 35px;
-
-  @media (max-width: 768px) {
-    padding-right: 0;
-  }
-}
-
-.column-2 {
-  padding-left: 15px;
-
-  @media (max-width: 768px) {
-    padding-left: 0;
-  }
-}
-
 .page-header {
   padding: $spacing 0;
   position: relative;

@@ -24,6 +24,11 @@
   &:nth-child(5n+0) {
     margin-right: 0;
   }
+}
+
+.column-2 .grid-item {
+  float: right;
+  margin: 0 0 $spacing $spacing;
 
   @media (max-width: 768px) {
     float: none;
