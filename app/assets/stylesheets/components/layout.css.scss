@@ -37,9 +37,10 @@ a, a:hover, a:active, a:visited {
 }
 
 .page-header {
-  margin: $spacing 0 $spacing*1.5 0;
+  padding: $spacing 0;
+  position: relative;
 
-  .logo {
-    margin-bottom: $spacing;
+  &:before {
+    @include gradient-border-bottom;
   }
 }

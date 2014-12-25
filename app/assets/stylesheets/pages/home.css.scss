@@ -1,9 +1,15 @@
 .section-1 {
   margin: $spacing*4 0;
+  padding-bottom: $spacing*4;
+  position: relative;
   text-align: center;
 
   .logo {
     margin-bottom: $spacing*2;
+  }
+
+  &:before {
+    @include gradient-border-bottom;
   }
 }
 

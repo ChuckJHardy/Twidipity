@@ -43,3 +43,26 @@
   -webkit-justify-content: center;
   justify-content: center;
 }
+
+//Design treatments
+
+@mixin gradient-border {
+  content: "";
+  background-image: linear-gradient(to right, #D3A90A 0%, #69B9C7 100%);
+  height: 1px;
+  position: absolute;
+}
+
+@mixin gradient-border-bottom {
+  @include gradient-border;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin gradient-border-top {
+  @include gradient-border;
+  left: 0;
+  right: 0;
+  top: 0;
+}

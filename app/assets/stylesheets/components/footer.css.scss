@@ -1,22 +1,31 @@
+footer {
+  padding: $spacing 0;
+  position: relative;
+}
+
+footer:before {
+  @include gradient-border-top;
+}
+
 .footer-links {
-	@include clearfix;
-	list-style-type: none;
-	margin: $spacing 0;
-	padding: 0;
-	width: 100%;
+  @include clearfix;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 
-	li {
-		float: left;
-		margin-right: $spacing;
+  li {
+    float: left;
+    margin-right: $spacing;
 
-		&:last-child {
-			margin-right: 0;
-		}
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
-		a {
-			color: $body-color;
-			font-size: $mini-font-size;
-			text-decoration: none;
-		}
-	}		
+  a {
+    color: $body-color;
+    font-size: $mini-font-size;
+    text-decoration: none;
+  }
 }
