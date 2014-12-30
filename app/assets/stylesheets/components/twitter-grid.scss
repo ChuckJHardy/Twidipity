@@ -1,4 +1,4 @@
-.grid-delete-link {
+.grid-delete-link, .play-pause-btn {
   display: none;
 }
 
@@ -24,8 +24,11 @@
   .play-pause-btn {
     @include hide-text;
     @include sprite;
-    display: inline-block;
     margin-bottom: 5px;
+  }
+
+  &:hover .play-pause-btn {
+    display: inline-block;
   }
 
   .pause-btn {
@@ -58,6 +61,7 @@
 .grid-item-link {
   color: $body-color;
   display: block;
+  text-decoration: none;
 
   &:hover, &:visited {
     color: $body-color;
