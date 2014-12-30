@@ -1,7 +1,7 @@
 //Typography
 
 @mixin font-normal {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
 }
 
@@ -45,6 +45,11 @@
 }
 
 //Design treatments
+
+@mixin sprite {
+  background: transparent image-url('sprite.png') 0 0 no-repeat;
+  background-size: 140px 147px;
+}
 
 @mixin gradient-border {
   content: "";

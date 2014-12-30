@@ -1,7 +1,7 @@
 .logo {
 	@include hide-text;
-	background: transparent image-url('logo.png') center center no-repeat;
-	background-size: 70px 70px;
+	@include sprite;
+  background-position: 0 0;
 	height: 70px;
 	width: 70px;
 	margin: 0 auto;
