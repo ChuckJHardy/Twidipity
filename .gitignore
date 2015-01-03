@@ -6,3 +6,4 @@ log
 coverage
 config/database.yml
 .capistrano
+dump.sql
