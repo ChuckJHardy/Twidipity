@@ -1,35 +1,19 @@
+@include sticky-footer(30px, 'content', 'footer');
+
 footer {
-  padding: $spacing 0;
-  position: relative;
-}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 
-footer:before {
-  @include gradient-border-top;
-}
-
-.footer-links {
-  @include clearfix;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  li {
-    float: left;
-    margin-right: $spacing;
-
-    &:last-child {
-      margin-right: 0;
+    li {
+      float: left;
+      margin-left: $spacing;
     }
 
-    @media (max-width: 768px) {
-      float: none !important;
+    a {
+      color: $footer-link-color;
+      font-size: $mini-font-size;
     }
-  }
-
-  a {
-    color: $body-color;
-    font-size: $mini-font-size;
-    text-decoration: none;
   }
 }

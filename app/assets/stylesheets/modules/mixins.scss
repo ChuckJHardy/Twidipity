@@ -1,10 +1,5 @@
 //Typography
 
-@mixin font-normal {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-}
-
 @mixin hide-text {
   text-indent: 100%;
   white-space: nowrap;
@@ -70,4 +65,24 @@
   left: 0;
   right: 0;
   top: 0;
+}
+
+@mixin sticky-footer($footer-height, $content-selector, $footer-selector) {
+  html, body {
+    height: 100%;
+  }
+
+  #{$content-selector} {
+    min-height: 100%;
+    margin-bottom: -$footer-height; 
+  }
+
+  #{$content-selector}:after {
+    content: "";
+    display: block;
+  }
+
+  #{$footer-selector}, #{$content-selector}:after {
+    height: $footer-height; 
+  }
 }

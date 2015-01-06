@@ -7,16 +7,17 @@ html, body {
 }
 
 body {
-  @include font-normal;
+  font-family: $font-family;
   background-color: $background-color;
   color: $body-color;
 }
 
-a, a:hover, a:active, a:visited {
-  color: $brand-color;
+a {
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.container {
+content {
   @include clearfix;
   display: block;
   margin: 0 auto;
@@ -35,14 +36,5 @@ a, a:hover, a:active, a:visited {
   @media (max-width: 768px) {
     float: none;
     width: 100%;
-  }
-}
-
-.page-header {
-  padding: $spacing 0;
-  position: relative;
-
-  &:before {
-    @include gradient-border-bottom;
   }
 }
