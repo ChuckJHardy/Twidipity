@@ -48,16 +48,6 @@
   }
 }
 
-.column-2 .grid-item {
-  float: right;
-  margin: 0 0 $spacing $spacing;
-
-  @media (max-width: 768px) {
-    float: none;
-    margin: $spacing auto;
-  }
-}
-
 .grid-item-link {
   color: $body-color;
   display: block;
@@ -85,8 +75,20 @@
   text-align: center;
 }
 
-.grid-loading {
-  background-color: $accent-color;
+.grid-item-loading {
+  background: none;
+
+  .logo {
+    opacity: 0.1;
+  }
+}
+
+.grid-item-add {
+  background: none;
+
+  a {
+    font-size: 120px;
+  }
 }
 
 .grid-item-timer {

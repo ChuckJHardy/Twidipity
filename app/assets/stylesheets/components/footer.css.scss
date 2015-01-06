@@ -1,6 +1,8 @@
 @include sticky-footer(30px, 'content', 'footer');
 
 footer {
+  display: inline-block;
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -9,6 +11,10 @@ footer {
     li {
       float: left;
       margin-left: $spacing;
+
+      &:nth-child(3) {
+        margin-right: $spacing;
+      }
     }
 
     a {
