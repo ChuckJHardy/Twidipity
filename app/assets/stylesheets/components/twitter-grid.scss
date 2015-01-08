@@ -1,5 +1,14 @@
-.grid-delete-link, .play-pause-btn {
+.grid-action {
   display: none;
+
+  a {
+    text-transform: uppercase;
+    color: $body-color;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
 }
 
 .grid-item {
@@ -9,52 +18,16 @@
   margin: 0 $spacing $spacing 0;
   position: relative;
 
-  &:hover .grid-delete-link {
-    @include hide-text;
-    @include sprite;
-    background-position: 0 -70px;
+  &:hover .grid-item-name, &:hover .grid-item-timer {
+    display: none;
+  }
+
+  &:hover .grid-action {
     display: inline-block;
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  .play-pause-btn {
-    @include hide-text;
-    @include sprite;
-    margin-bottom: 5px;
-  }
-
-  &:hover .play-pause-btn {
-    display: inline-block;
-  }
-
-  .pause-btn {
-    background-position: 0px -89px;
-    height: 29px;
-    width: 23px;
-  }
-
-  .play-btn {
-    background-position: 0px -118px;
-    height: 29px;
-    width: 19px;
   }
 
   &:nth-child(5n+0) {
     margin-right: 0;
-  }
-}
-
-.grid-item-link {
-  color: $body-color;
-  display: block;
-  text-decoration: none;
-
-  &:hover, &:visited {
-    color: $body-color;
   }
 }
 
@@ -88,9 +61,17 @@
 
   a {
     font-size: 120px;
+    margin-top: -32px;
+    color: $brand-color;
+
+    &:hover {
+      color: $body-color;
+    }
   }
 }
 
 .grid-item-timer {
   font-size: $mini-font-size;
+  opacity: 0.6;
+  margin-top: -8px;
 }
