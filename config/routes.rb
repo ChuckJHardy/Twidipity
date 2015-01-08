@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   resources :statements, except: [:new]
   resources :users, only: [:destroy]
 
-  get '/history' => 'statements#history'
-
   get '/auth/twitter/callback' => 'sessions#create'
   get '/auth/failure' => 'sessions#failure'
   get '/logout' => 'sessions#destroy'

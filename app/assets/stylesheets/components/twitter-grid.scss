@@ -59,10 +59,16 @@
 .grid-item-add {
   background: none;
 
-  a {
-    font-size: 120px;
+  input[type=submit] {
     margin-top: -32px;
     color: $brand-color;
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 120px;
+    margin: 0 auto;
+    text-transform: uppercase;
 
     &:hover {
       color: $body-color;

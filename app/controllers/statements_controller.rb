@@ -4,15 +4,14 @@ class StatementsController < ApplicationController
   def index
     @active = user.statements.active.map(&StatementDecorator)
     @processing = user.statements.processing
+    @complete = complete.uniq.map(&SuggestionDecorator)
+    @waiting = 4 - (@active + @processing).size
   rescue
     @active = []
     @processing = []
+    @complete = []
   ensure
     @new_statement = Statement.new
-  end
-
-  def history
-    @complete = complete.uniq.map(&SuggestionDecorator)
   end
 
   def create

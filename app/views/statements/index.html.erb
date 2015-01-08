@@ -4,118 +4,23 @@
   <div class="active">
     <div class="grid-item">
       <div class="grid-item-name-wrapper grid-item-add">
-        <a href="#">+</a>
+        <%= form_for @new_statement do |f| %>
+          <%= f.hidden_field :follow, value: 1 %>
+          <%= f.hidden_field :duration, value: 86400 %>
+          <%= f.submit '+' %>
+        <% end %>
       </div>
     </div>
 
-    <div class="grid-item">
-      <img src="https://pbs.twimg.com/profile_images/548274854563442688/LfeBd_33.jpeg" alt="Smiley face" height="200" width="200" class="grid-item-img">
-      <div class="grid-item-name-wrapper">
-        <div class="grid-action">
-          <a href="#">Pause</a>
-        </div>
-        <div class="grid-item-name">
-          ChuckJHardy
-        </div>
-        <div class="grid-item-timer">
-          about 2 hours
-        </div>
-      </div>
-    </div>
+    <%= render partial: "statement", collection: @active %>
+    <%= render partial: "processing", collection: @processing %>
 
-    <div class="grid-item">
-      <div class="grid-item-name-wrapper grid-item-loading">
-        <div class="logo">Loading</div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <div class="grid-item-name-wrapper grid-item-loading">
-        <div class="logo">Loading</div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <div class="grid-item-name-wrapper grid-item-loading">
-        <div class="logo">Loading</div>
-      </div>
-    </div>
+    <% @waiting.times do %>
+      <%= render partial: "waiting" %>
+    <% end %>
   </div>
 
   <div class="inactive">
-    <div class="grid-item">
-      <img src="https://pbs.twimg.com/profile_images/548274854563442688/LfeBd_33.jpeg" alt="Smiley face" height="200" width="200" class="grid-item-img">
-      <div class="grid-item-name-wrapper">
-        <div class="grid-action">
-          <a href="#">PLAY</a> or <a href="#">DELETE</a>
-        </div>
-        <div class="grid-item-name">
-          ChuckJHardy
-        </div>
-        <div class="grid-item-timer">
-          about 2 hours
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://pbs.twimg.com/profile_images/548274854563442688/LfeBd_33.jpeg" alt="Smiley face" height="200" width="200" class="grid-item-img">
-      <div class="grid-item-name-wrapper">
-        <div class="grid-action">
-          <a href="#">PLAY</a> or <a href="#">DELETE</a>
-        </div>
-        <div class="grid-item-name">
-          ChuckJHardy
-        </div>
-        <div class="grid-item-timer">
-          about 2 hours
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://pbs.twimg.com/profile_images/548274854563442688/LfeBd_33.jpeg" alt="Smiley face" height="200" width="200" class="grid-item-img">
-      <div class="grid-item-name-wrapper">
-        <div class="grid-action">
-          <a href="#">PLAY</a> or <a href="#">DELETE</a>
-        </div>
-        <div class="grid-item-name">
-          ChuckJHardy
-        </div>
-        <div class="grid-item-timer">
-          about 2 hours
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://pbs.twimg.com/profile_images/548274854563442688/LfeBd_33.jpeg" alt="Smiley face" height="200" width="200" class="grid-item-img">
-      <div class="grid-item-name-wrapper">
-        <div class="grid-action">
-          <a href="#">PLAY</a> or <a href="#">DELETE</a>
-        </div>
-        <div class="grid-item-name">
-          ChuckJHardy
-        </div>
-        <div class="grid-item-timer">
-          about 2 hours
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://pbs.twimg.com/profile_images/548274854563442688/LfeBd_33.jpeg" alt="Smiley face" height="200" width="200" class="grid-item-img">
-      <div class="grid-item-name-wrapper">
-        <div class="grid-action">
-          <a href="#">PLAY</a> or <a href="#">DELETE</a>
-        </div>
-        <div class="grid-item-name">
-          ChuckJHardy
-        </div>
-        <div class="grid-item-timer">
-          about 2 hours
-        </div>
-      </div>
-    </div>
+    <%= render partial: "completed_suggestion", collection: @complete, as: :suggestion %>
   </div>
 </div>

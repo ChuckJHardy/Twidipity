@@ -2,13 +2,10 @@
   <%= image_tag(suggestion.profile_image_uri, alt: suggestion.screen_name, class: "grid-item-img") %>
   <div class="grid-item-name-wrapper">
     <div class="grid-action">
-      <%= link_to 'Pause', statement_path(statement), method: :delete %>
+      <a href="#">Play</a> or <%= link_to 'Delete', '#', method: :delete %>
     </div>
     <div class="grid-item-name">
       <%= suggestion.screen_name %>
-    </div>
-    <div class="grid-item-timer">
-      <%= distance_of_time_in_words_to_now(statement.ending_at) %>
     </div>
   </div>
 </div>
